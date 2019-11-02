@@ -1,0 +1,43 @@
+{
+    "name": "wingsline/blog",
+    "description": ":description",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arpad Olasz",
+            "email": "wingsline@gmail.com",
+            "homepage": "https://wingsline.com"
+        }
+    ],
+    "homepage": "https://github.com/wingsline/blog",
+    "keywords": ["Laravel", "Blog"],
+    "require": {
+        "illuminate/support": "~6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~4.0",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wingsline\\Blog\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Wingsline\\Blog\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wingsline\\Blog\\BlogServiceProvider"
+            ],
+            "aliases": {
+                "Blog": "Wingsline\\Blog\\Facades\\Blog"
+            }
+        }
+    }
+}
