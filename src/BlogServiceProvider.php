@@ -5,18 +5,27 @@ namespace Wingsline\Blog;
 use Spatie\Tags\Tag;
 use Spatie\Flash\Flash;
 use Spatie\Menu\Laravel\Link;
-use Wingsline\Blog\Console\PublishCommand;
-use Wingsline\Blog\Console\ThemePublishCommand;
 use Wingsline\Blog\Posts\Post;
 use Illuminate\Support\Facades\Route;
 use Spatie\Menu\Laravel\Facades\Menu;
 use Illuminate\Support\ServiceProvider;
 use Wingsline\Blog\Console\InstallCommand;
+use Wingsline\Blog\Console\PublishCommand;
+use Wingsline\Blog\Console\ThemePublishCommand;
 use Wingsline\Blog\Http\Middleware\NoHttpCache;
 use Wingsline\Blog\Http\Middleware\Authenticate;
 
 class BlogServiceProvider extends ServiceProvider
 {
+    public function addFeed()
+    {
+        $this->app['config']
+            ->set(
+                'feed.feeds.blog',
+                $this->app['config']->get('blog.feed')
+            );
+    }
+
     /**
      * Perform post-registration booting of services.
      */
@@ -73,6 +82,7 @@ class BlogServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/blog.php', 'blog');
+        $this->addFeed();
 
         $this->commands([
             InstallCommand::class,

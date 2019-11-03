@@ -1,5 +1,7 @@
 <?php
 
+use Wingsline\Blog\Posts\Post;
+
 return [
     /*
      |--------------------------------------------------------------------------
@@ -25,4 +27,21 @@ return [
     |
     */
     'per_page' => env('ADMIN_PER_PAGE', 15),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Feed configuration
+    |--------------------------------------------------------------------------
+    |
+    */
+    'feed' => [
+        'items' => Post::class . '@getFeedItems',
+        'url' => '/feed/blog',
+        'title' => env('APP_NAME'),
+        'description' => config('theme.meta.description', ''),
+        'language' => 'en-US',
+        'view' => 'feed::atom',
+        'type' => 'application/atom+xml',
+    ]
+
 ];
