@@ -13,13 +13,13 @@ class PublishCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'blog:publish {--force : Overwrite any existing files}';
+    protected $signature = 'blog:publish';
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Publish all of the Blog resources';
+    protected $description = 'Publish all of the blog\'s resources';
     /**
      * Execute the console command.
      *

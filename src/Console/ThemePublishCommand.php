@@ -19,7 +19,7 @@ class ThemePublishCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Publish all of the theme\'s public assets.';
+    protected $description = 'Create a symbolic link from "theme/public" to "public/theme"';
 
     /**
      * Execute the console command.
