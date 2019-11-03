@@ -1,0 +1,27 @@
+/* ==========================================================================
+  main.css
+   ========================================================================== */
+
+/* Configuration */
+@import "config/fonts.css";
+
+/* main css file for the site using tailwindcss */
+
+/* @tailwind base; */
+@import "tailwindcss/base";
+@import "./base/links.css";
+@import "./base/labels.css";
+
+/* @tailwind components; */
+@import "tailwindcss/components";
+@import "./components/button.css";
+@import "./components/editor.css";
+@import "./components/text-input.css";
+
+/* @tailwind utilities; */
+@import "tailwindcss/utilities";
+
+/* fontawesome and easymde */
+@import "./vendor/fontawesome.css";
+@import "./vendor/easymde.css";
+@import "./base/editor-preview.css";

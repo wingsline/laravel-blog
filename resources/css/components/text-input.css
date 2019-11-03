@@ -1,0 +1,29 @@
+/* ==========================================================================
+  text-input.css
+   ========================================================================== */
+
+.text-input,
+textarea,
+input[type="file"] {
+  @apply appearance-none bg-white block m-auto w-full py-2 px-3 border border-gray-400 leading-tight rounded-sm;
+
+  background-image: none;
+  background-clip: padding-box;
+  box-shadow: none;
+}
+
+.text-input:focus,
+textarea:focus,
+input[type="file"]:focus {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: Highlight;
+}
+
+@media (-webkit-min-device-pixel-ratio: 0) {
+  .text-input:focus,
+  textarea:focus,
+  input[type="file"]:focus {
+    outline: -webkit-focus-ring-color auto 3px;
+  }
+}

@@ -3,6 +3,7 @@
          backupGlobals="false"
          backupStaticAttributes="false"
          colors="true"
+         printerClass="Sempro\PHPUnitPrettyPrinter\PrettyPrinter"
          verbose="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"

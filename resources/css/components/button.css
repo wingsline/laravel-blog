@@ -1,0 +1,17 @@
+/* ==========================================================================
+  button.css
+   ========================================================================== */
+button,
+.btn {
+  @apply font-semibold text-sm uppercase border-0 text-white cursor-pointer;
+  @apply bg-green-500  text-center whitespace-no-wrap;
+  @apply tracking-wide align-middle px-4 py-2 rounded-sm;
+}
+
+/* Link buttons */
+button:active,
+.btn:active,
+button:hover,
+.btn:hover {
+  @apply no-underline text-white;
+}

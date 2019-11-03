@@ -1,0 +1,12 @@
+/* ==========================================================================
+  editor.css
+   ========================================================================== */
+
+/* Markdown editor customizations */
+.editor-toolbar {
+  @apply bg-gray-200;
+}
+
+.editor-toolbar button {
+  @apply text-gray-800;
+}

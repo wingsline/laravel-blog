@@ -1,0 +1,124 @@
+/* ==========================================================================
+  elements.css
+   ========================================================================== */
+
+.editor-preview {
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.editor-preview h1 {
+  font-size: 33px;
+  line-height: 57px;
+  margin-bottom: 32px;
+}
+
+.editor-preview h2 {
+  font-size: 26px;
+  line-height: 47px;
+  margin-bottom: 20px;
+}
+
+.editor-preview h3 {
+  font-size: 20px;
+  line-height: 38px;
+  margin-bottom: 12px;
+}
+
+.editor-preview h4 {
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+
+.editor-preview table {
+  width: 100%;
+}
+
+.editor-preview p,
+.editor-preview ul,
+.editor-preview ol,
+.editor-preview blockquote,
+.editor-preview pre,
+.editor-preview table {
+  margin-bottom: 32px;
+}
+
+.editor-preview ul,
+.editor-preview ol {
+  margin-left: 32px;
+  margin-top: 32px;
+}
+
+.editor-preview ul li {
+  margin-bottom: 12px;
+  list-style-type: initial;
+}
+
+.editor-preview ol li {
+  list-style: decimal;
+  margin-top: 12px;
+}
+
+.editor-preview ul li li {
+  list-style-type: circle;
+}
+
+.editor-preview ul li li li {
+  list-style-type: square;
+}
+
+.editor-preview li ul,
+.editor-preview li ol {
+  margin-top: 12px;
+}
+
+.editor-preview blockquote {
+  padding-left: 20px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.15);
+  border-width: 0 0 0 7px;
+}
+
+sub,
+sup {
+  padding: 0 1px;
+}
+
+.editor-preview code,
+.editor-preview pre,
+.editor-preview kbd {
+  font-size: 15px;
+}
+
+.editor-preview pre {
+  padding: 12px;
+}
+
+.editor-preview kbd {
+  background-color: #fff;
+  padding: 3px 4px;
+  border-radius: 4px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.45);
+  margin: 0 1px;
+}
+
+.editor-preview .footnotes {
+  font-size: 13px;
+  line-height: 28px;
+  padding-top: 20px;
+  border-top: 1px dotted rgba(0, 0, 0, 0.15);
+}
+
+.editor-preview .footnotes p {
+  margin-bottom: 20px;
+}
+
+.editor-preview ul ul,
+.editor-preview ul ol,
+.editor-preview ol ul,
+.editor-preview ol ol,
+.editor-preview .footnotes :last-child {
+  margin-bottom: 0;
+}
