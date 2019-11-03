@@ -1,8 +1,6 @@
 // markdown editor
 import EasyMDE from "./vendor/easymde/easymde";
-
-const MarkdownIt = require("markdown-it")()
-  .use(require("markdown-it-footnote"));
+const axios = require('axios').default;
 
 const editors = document.getElementsByClassName("markdown-editor");
 const token = document.head.querySelector("meta[name=\"csrf-token\"]");
@@ -33,7 +31,10 @@ if (editors.length) {
       "|",
       "preview",
       "side-by-side",
-      "fullscreen"
+      "fullscreen",
+      "|",
+      "undo",
+      "redo"
     ],
     autosave: {
       enabled: true,
@@ -43,9 +44,18 @@ if (editors.length) {
     uploadImage: imageUploadEndpoint !== "",
     imageUploadEndpoint: imageUploadEndpoint,
     imageMaxSize: parseInt(editors[0].getAttribute("data-max-size"), 10),
-    previewRender: function (plainText) {
-      return MarkdownIt.render(plainText); // Returns HTML from a custom parser
-    }
+    // previewRender: function (plainText) {
+    //   return MarkdownIt.render(plainText); // Returns HTML from a custom parser
+    // }
+      previewRender: function(plainText, preview) { // Async method
+        axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+        axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
+        axios.post(editors[0].getAttribute("data-preview-url"), {payload: plainText})
+            .then(function(response) {
+                preview.innerHTML = response.data.data.html;
+            });
+          return "";
+      },
   });
 }
 

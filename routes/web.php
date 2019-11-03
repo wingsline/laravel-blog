@@ -24,6 +24,7 @@ Route::middleware(['web', 'blog-nocache'])
                 Route::get('account', [AccountController::class, 'edit'])->name('account.edit');
                 Route::match(['PUT', 'PATCH'], 'account', [AccountController::class, 'update'])->name('account.update');
 
+                Route::post('posts/preview', [PostsController::class, 'preview'])->name('posts.preview');
                 Route::post('posts/upload/{post}', [PostsController::class, 'upload'])->name('posts.upload');
                 Route::resource('posts', PostsController::class)->except('show');
             });

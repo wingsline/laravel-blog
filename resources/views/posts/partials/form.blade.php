@@ -15,6 +15,7 @@
         rows="15"
         class="text-input markdown-editor"
         data-upload-url="{{ $post->exists ? route('admin.posts.upload', $post): '' }}"
+        data-preview-url="{{ route('admin.posts.preview') }}"
         data-max-size="{{ config('medialibrary.max_file_size') }}"
     >{{ old('text', $post->markdown) }}</textarea>
     <p class="text-xs text-red-700 mt-1">

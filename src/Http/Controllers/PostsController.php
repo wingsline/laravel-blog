@@ -2,7 +2,6 @@
 
 namespace Wingsline\Blog\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Wingsline\Blog\Posts\Post;
 use App\Http\Controllers\Controller;
 use Wingsline\Blog\Http\Requests\PostRequest;
@@ -28,7 +27,9 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param Post $post
+     *
+     * @throws \Exception
      *
      * @return \Illuminate\Http\Response
      */
@@ -66,6 +67,20 @@ class PostsController extends Controller
     }
 
     /**
+     * Generates a markdown preview for the post.
+     *
+     * @param Post $post
+     *
+     * @return array
+     */
+    public function preview(Post $post)
+    {
+        $post->text = request('payload', '');
+
+        return ['data' => ['html' => $post->text]];
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
@@ -84,8 +99,8 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int                      $id
+     * @param PostRequest $request
+     * @param Post        $post
      *
      * @return \Illuminate\Http\Response
      */
@@ -103,10 +118,6 @@ class PostsController extends Controller
      *
      * @param Post               $post
      * @param ImageUploadRequest $request
-     *
-     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\DiskDoesNotExist
-     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileDoesNotExist
-     * @throws \Spatie\MediaLibrary\Exceptions\FileCannotBeAdded\FileIsTooBig
      *
      * @return array
      */
