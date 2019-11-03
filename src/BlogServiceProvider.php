@@ -8,6 +8,8 @@ use Spatie\Flash\Flash;
 use Spatie\Menu\Laravel\Facades\Menu;
 use Spatie\Menu\Laravel\Link;
 use Wingsline\Blog\Console\InstallCommand;
+use Wingsline\Blog\Http\Middleware\Authenticate;
+use Wingsline\Blog\Http\Middleware\NoHttpCache;
 
 class BlogServiceProvider extends ServiceProvider
 {
@@ -43,6 +45,11 @@ class BlogServiceProvider extends ServiceProvider
                 ->view('blog::layouts.partials.logout')
                 ->setActiveFromRequest('/');
         });
+
+        // set middleware groups
+        $router = $this->app->make('router');
+        $router->middlewareGroup('blog-auth', [Authenticate::class]);
+        $router->middlewareGroup('blog-nocache', [NoHttpCache::class]);
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
