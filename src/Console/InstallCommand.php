@@ -129,12 +129,17 @@ class InstallCommand extends Command
         $this->comment('Running the database migrations...');
         $this->call('migrate');
         $this->call('storage:link');
+        // Link the theme?
+        if ($this->confirm('Link the theme\'s public assets?')) {
+            $this->call('blog:theme-publish');
+        }
         // Seed the database
         if ($this->confirm('Seed the database (recommended for new installations)')) {
             $this->comment('Seeding the database with default data...');
             $this->call('db:seed', ['--class' => UsersTableSeeder::class]);
         }
 
-        $this->info('Installation complete.');
+        $admin_url = url(config('blog.prefix'));
+        $this->info('Installation complete. You can login to the admin ' . $admin_url);
     }
 }

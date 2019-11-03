@@ -49,10 +49,7 @@
         "laravel": {
             "providers": [
                 "Wingsline\\Blog\\BlogServiceProvider"
-            ],
-            "aliases": {
-                "Blog": "Wingsline\\Blog\\Facades\\Blog"
-            }
+            ]
         }
     }
 }

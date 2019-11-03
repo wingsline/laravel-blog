@@ -8,12 +8,14 @@
     <title>Admin | {{ config('app.name') }}</title>
 
     <!-- Styles -->
-    <link nonce="{{ csp_nonce() }}" rel="stylesheet" href="{{ mix('main.css', 'vendor/wingsline') }}">
+    <link nonce="{{ csp_nonce() }}" rel="stylesheet" href="{{ mix('main.css', 'vendor/wingsline-blog') }}">
 </head>
 <body class="bg-gray-200 font-body">
     <div id="app">
         @yield('content')
     </div>
-    <script nonce="{{ csp_nonce() }}" src="{{ mix('app.js', 'vendor/wingsline') }}"></script>
+    <script nonce="{{ csp_nonce() }}" src="{{ mix('manifest.js', 'vendor/wingsline-blog') }}"></script>
+    <script nonce="{{ csp_nonce() }}" src="{{ mix('vendor.js', 'vendor/wingsline-blog') }}"></script>
+    <script nonce="{{ csp_nonce() }}" src="{{ mix('app.js', 'vendor/wingsline-blog') }}"></script>
 </body>
 </html>

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Wingsline\Blog\Http\Controllers;
-
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;

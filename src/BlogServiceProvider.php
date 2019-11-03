@@ -2,14 +2,18 @@
 
 namespace Wingsline\Blog;
 
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\ServiceProvider;
+use Spatie\Tags\Tag;
 use Spatie\Flash\Flash;
-use Spatie\Menu\Laravel\Facades\Menu;
 use Spatie\Menu\Laravel\Link;
+use Wingsline\Blog\Console\PublishCommand;
+use Wingsline\Blog\Console\ThemePublishCommand;
+use Wingsline\Blog\Posts\Post;
+use Illuminate\Support\Facades\Route;
+use Spatie\Menu\Laravel\Facades\Menu;
+use Illuminate\Support\ServiceProvider;
 use Wingsline\Blog\Console\InstallCommand;
-use Wingsline\Blog\Http\Middleware\Authenticate;
 use Wingsline\Blog\Http\Middleware\NoHttpCache;
+use Wingsline\Blog\Http\Middleware\Authenticate;
 
 class BlogServiceProvider extends ServiceProvider
 {
@@ -19,16 +23,11 @@ class BlogServiceProvider extends ServiceProvider
     public function boot()
     {
         // prepend the views from the theme
-        if(File::isDirectory(base_path('theme'))) {
-            $paths = array_merge([base_path('theme/views')], config('view.paths'));
-            config()->set('view.paths', $paths);
-            $this->mergeConfigFrom(base_path('theme/config.php'), 'theme');
-        }
+        $this->app['view']->getFinder()->prependLocation(base_path('theme/views'));
 
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'wingsline');
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'blog');
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
 
         Flash::levels([
             'success' => '',
@@ -46,10 +45,11 @@ class BlogServiceProvider extends ServiceProvider
                 ->setActiveFromRequest('/');
         });
 
-        // set middleware groups
-        $router = $this->app->make('router');
-        $router->middlewareGroup('blog-auth', [Authenticate::class]);
-        $router->middlewareGroup('blog-nocache', [NoHttpCache::class]);
+        // register the route middleware groups
+        $this->app['router']->middlewareGroup('blog-auth', [Authenticate::class]);
+        $this->app['router']->middlewareGroup('blog-nocache', [NoHttpCache::class]);
+        // router bindings
+        $this->registerRouteModelBindings();
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
@@ -75,12 +75,30 @@ class BlogServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/blog.php', 'blog');
 
         $this->commands([
-            InstallCommand::class
+            InstallCommand::class,
+            PublishCommand::class,
+            ThemePublishCommand::class,
         ]);
+    }
 
-        // Register the service the package provides.
-        $this->app->singleton('blog', function ($app) {
-            return new Blog();
+    public function registerRouteModelBindings()
+    {
+        Route::bind('postSlug', function ($slug) {
+            if (auth()->check()) {
+                return Post::where('slug', $slug)->first() ?? abort(404);
+            }
+
+            $post = Post::where('slug', $slug)->public()->first() ?? abort(404);
+
+            if (!$post->published) {
+                abort(404);
+            }
+
+            return $post;
+        });
+
+        Route::bind('tagSlug', function ($slug) {
+            return Tag::where('slug->en', $slug)->first() ?? abort(404);
         });
     }
 
@@ -104,9 +122,10 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../database/migrations' => database_path('migrations'),
         ], 'blog.migrations');
+
         // Publishing assets.
         $this->publishes([
-            __DIR__.'/../public' => public_path('vendor/wingsline'),
+            __DIR__ . '/../public' => public_path('vendor/wingsline-blog'),
         ], 'blog.assets');
 
         // Publishing the translation files.

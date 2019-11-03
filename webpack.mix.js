@@ -31,9 +31,32 @@ const postCssOptions = [
 // whitelist these class names
 mix.purgeCss({
     folders: [
-        "resources"
+        './src/**/*.php',
+        './resources/**/*'
     ],
-    whitelistPatterns: [/hljs/, /page/, /iframe/, /CodeMirror/, /CodeMirror-/, /editor/, /cm/, /th/, /td/, /footnote/, /hr/]
+    globs: [
+        path.join(__dirname, 'resources/js/vendor/**/*.js'),
+        path.join(__dirname, 'node_modules/codemirror/**/*.js'),
+        path.join(__dirname, 'node_modules/highlight.js/**/*.js'),
+    ],
+    whitelistPatterns: [
+        /hljs/,
+        /page/,
+        /iframe/,
+        /CodeMirror/,
+        /CodeMirror-/,
+        /editor/,
+        /cm/,
+        /easymde/,
+        /th/,
+        /td/,
+        /footnote/,
+        /hr/,
+        // classnames in the service provider
+        /p-2/,
+        /flex/,
+        /items-center/
+    ]
 });
 
 mix.options({
@@ -52,10 +75,8 @@ mix.options({
     .copyDirectory("resources/fonts", "public/fonts")
     .postCss("resources/css/main.css", "public")
     .js("resources/js/app.js", "public")
-    // .js('resources/js/app.js', 'public')
-    // .sass('resources/sass/app.scss', 'public')
-    // .sass('resources/sass/app-dark.scss', 'public')
     .version()
+    .extract()
     // .copy('public', '../telescopetest/public/vendor/telescope')
     .webpackConfig({
         resolve: {

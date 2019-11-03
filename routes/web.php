@@ -5,6 +5,8 @@ use Wingsline\Blog\Http\Controllers\LoginController;
 use Wingsline\Blog\Http\Controllers\PostsController;
 use Wingsline\Blog\Http\Controllers\AccountController;
 use Wingsline\Blog\Http\Controllers\DashboardController;
+use Wingsline\Blog\Http\Controllers\Front\HomeController;
+use Wingsline\Blog\Http\Controllers\Front\TaggedPostsController;
 
 // Admin routes
 Route::middleware(['web', 'blog-nocache'])
@@ -25,4 +27,12 @@ Route::middleware(['web', 'blog-nocache'])
                 Route::post('posts/upload/{post}', [PostsController::class, 'upload'])->name('posts.upload');
                 Route::resource('posts', PostsController::class)->except('show');
             });
+    });
+
+Route::middleware(config('app.debug') ? ['web'] : ['web', 'cacheResponse'])
+    ->group(function () {
+        Route::feeds();
+        Route::get('/', HomeController::class);
+        Route::get('tag/{tagSlug}', TaggedPostsController::class)->name('posts.tagged');
+        Route::get('{postSlug}', [\Wingsline\Blog\Http\Controllers\Front\PostsController::class, 'detail'])->name('post');
     });
