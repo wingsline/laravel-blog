@@ -1,19 +1,11 @@
 <?php
 
-
 namespace Wingsline\Blog\Console;
-
 
 use Illuminate\Console\Command;
 
 class PublishCommand extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'blog:publish';
     /**
      * The console command description.
      *
@@ -21,9 +13,14 @@ class PublishCommand extends Command
      */
     protected $description = 'Publish all of the blog\'s resources';
     /**
-     * Execute the console command.
+     * The name and signature of the console command.
      *
-     * @return void
+     * @var string
+     */
+    protected $signature = 'blog:publish';
+
+    /**
+     * Execute the console command.
      */
     public function handle()
     {

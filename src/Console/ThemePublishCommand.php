@@ -1,12 +1,17 @@
 <?php
 
-
 namespace Wingsline\Blog\Console;
 
 use Illuminate\Console\Command;
 
 class ThemePublishCommand extends Command
 {
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Create a symbolic link from "theme/public" to "public/theme"';
     /**
      * The console command signature.
      *
@@ -15,16 +20,8 @@ class ThemePublishCommand extends Command
     protected $signature = 'blog:theme-publish';
 
     /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Create a symbolic link from "theme/public" to "public/theme"';
-
-    /**
      * Execute the console command.
      *
-     * @return void
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function handle()
@@ -36,7 +33,8 @@ class ThemePublishCommand extends Command
         $this->laravel->make('files')->delete(public_path('theme'));
 
         $this->laravel->make('files')->link(
-            base_path('theme/public'), public_path('theme')
+            base_path('theme/public'),
+            public_path('theme')
         );
 
         $this->info('The theme\'s public assets were linked.');

@@ -2,13 +2,20 @@
 
 namespace Wingsline\Blog\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Routing\Controller as BaseController;
 use Wingsline\Blog\Http\Requests\AccountEditRequest;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
-class AccountController extends Controller
+class AccountController extends BaseController
 {
+    use AuthorizesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */

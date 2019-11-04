@@ -3,11 +3,18 @@
 namespace Wingsline\Blog\Http\Controllers\Front;
 
 use Wingsline\Blog\Posts\Post;
-use App\Http\Controllers\Controller;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
-class HomeController extends Controller
+class HomeController extends BaseController
 {
+    use AuthorizesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
+
     public function __invoke()
     {
         /** @var Paginator $posts */

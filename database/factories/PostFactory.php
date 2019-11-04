@@ -1,8 +1,8 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-use App\Posts\Post;
 use Faker\Generator as Faker;
+use Wingsline\Blog\Posts\Post;
 
 $factory->define(Post::class, function (Faker $faker) {
     return [

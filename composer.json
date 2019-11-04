@@ -39,7 +39,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Wingsline\\Blog\\Tests\\": "tests"
+            "Wingsline\\Blog\\Tests\\": "tests/"
         }
     },
     "scripts": {

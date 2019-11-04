@@ -30,7 +30,7 @@ Route::middleware(['web', 'blog-nocache'])
             });
     });
 
-Route::middleware(config('app.debug') ? ['web'] : ['web', 'cacheResponse'])
+Route::middleware(config('app.debug') ? ['web'] : ['web', 'blog-cacheResponse'])
     ->group(function () {
         Route::feeds();
         Route::get('/', HomeController::class);

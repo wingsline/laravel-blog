@@ -14,6 +14,7 @@ use Wingsline\Blog\Console\PublishCommand;
 use Wingsline\Blog\Console\ThemePublishCommand;
 use Wingsline\Blog\Http\Middleware\NoHttpCache;
 use Wingsline\Blog\Http\Middleware\Authenticate;
+use Spatie\ResponseCache\Middlewares\CacheResponse;
 
 class BlogServiceProvider extends ServiceProvider
 {
@@ -57,6 +58,7 @@ class BlogServiceProvider extends ServiceProvider
         // register the route middleware groups
         $this->app['router']->middlewareGroup('blog-auth', [Authenticate::class]);
         $this->app['router']->middlewareGroup('blog-nocache', [NoHttpCache::class]);
+        $this->app['router']->middlewareGroup('blog-cacheResponse', [CacheResponse::class]);
         // router bindings
         $this->registerRouteModelBindings();
 
@@ -82,7 +84,10 @@ class BlogServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/blog.php', 'blog');
-        $this->mergeConfigFrom(base_path('theme/config.php'), 'theme');
+
+        if (file_exists(base_path('theme/config.php'))) {
+            $this->mergeConfigFrom(base_path('theme/config.php'), 'theme');
+        }
 
         $this->addFeed();
 

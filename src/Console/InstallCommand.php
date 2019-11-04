@@ -3,18 +3,24 @@
 namespace Wingsline\Blog\Console;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Schema;
-use Spatie\Backup\BackupServiceProvider;
 use Spatie\Csp\CspServiceProvider;
 use Spatie\Feed\FeedServiceProvider;
-use Spatie\MediaLibrary\MediaLibraryServiceProvider;
-use Spatie\MissingPageRedirector\MissingPageRedirectorServiceProvider;
-use Spatie\ResponseCache\ResponseCacheServiceProvider;
 use Spatie\Tags\TagsServiceProvider;
+use Illuminate\Support\Facades\Schema;
+use Spatie\Backup\BackupServiceProvider;
 use Wingsline\Blog\Database\Seeds\UsersTableSeeder;
+use Spatie\MediaLibrary\MediaLibraryServiceProvider;
+use Spatie\ResponseCache\ResponseCacheServiceProvider;
+use Spatie\MissingPageRedirector\MissingPageRedirectorServiceProvider;
 
 class InstallCommand extends Command
 {
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Install the blog.';
     /**
      * The name and signature of the console command.
      *
@@ -23,16 +29,7 @@ class InstallCommand extends Command
     protected $signature = 'blog:install';
 
     /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Install the blog.';
-
-    /**
      * Create a new command instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -51,7 +48,7 @@ class InstallCommand extends Command
         $this->callSilent(
             'vendor:publish',
             [
-                '--provider' => BackupServiceProvider::class
+                '--provider' => BackupServiceProvider::class,
             ]
         );
         // CSP
@@ -59,7 +56,7 @@ class InstallCommand extends Command
             'vendor:publish',
             [
                 '--tag' => 'config',
-                '--provider' => CspServiceProvider::class
+                '--provider' => CspServiceProvider::class,
             ]
         );
         // RSS Feed
@@ -67,7 +64,7 @@ class InstallCommand extends Command
             'vendor:publish',
             [
                 '--tag' => 'config',
-                '--provider' => FeedServiceProvider::class
+                '--provider' => FeedServiceProvider::class,
             ]
         );
         // media library
@@ -84,7 +81,7 @@ class InstallCommand extends Command
                 'vendor:publish',
                 [
                     '--tag' => 'migrations',
-                    '--provider' => MediaLibraryServiceProvider::class
+                    '--provider' => MediaLibraryServiceProvider::class,
                 ]
             );
         }
@@ -100,7 +97,7 @@ class InstallCommand extends Command
         $this->callSilent(
             'vendor:publish',
             [
-                '--provider' => ResponseCacheServiceProvider::class
+                '--provider' => ResponseCacheServiceProvider::class,
             ]
         );
         // tags
@@ -108,7 +105,7 @@ class InstallCommand extends Command
             'vendor:publish',
             [
                 '--tag' => 'config',
-                '--provider' => TagsServiceProvider::class
+                '--provider' => TagsServiceProvider::class,
             ]
         );
         if (!Schema::hasTable('tags')) {
@@ -116,14 +113,14 @@ class InstallCommand extends Command
                 'vendor:publish',
                 [
                     '--tag' => 'migrations',
-                    '--provider' => TagsServiceProvider::class
+                    '--provider' => TagsServiceProvider::class,
                 ]
             );
         }
         // Blog migrations
-        $this->callSilent('vendor:publish',['--tag' => 'blog.config']);
-        $this->callSilent('vendor:publish',['--tag' => 'blog.migrations']);
-        $this->callSilent('vendor:publish',['--tag' => 'blog.assets']);
+        $this->callSilent('vendor:publish', ['--tag' => 'blog.config']);
+        $this->callSilent('vendor:publish', ['--tag' => 'blog.migrations']);
+        $this->callSilent('vendor:publish', ['--tag' => 'blog.assets']);
         $this->info('Blog scaffolding installed successfully.');
         // run the migrations and seeds
         $this->comment('Running the database migrations...');
