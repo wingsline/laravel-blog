@@ -82,6 +82,8 @@ class BlogServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/blog.php', 'blog');
+        $this->mergeConfigFrom(base_path('theme/config.php'), 'theme');
+
         $this->addFeed();
 
         $this->commands([
