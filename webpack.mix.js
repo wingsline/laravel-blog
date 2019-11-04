@@ -77,7 +77,6 @@ mix.options({
     .js("resources/js/app.js", "public")
     .version()
     .extract()
-    // .copy('public', '../telescopetest/public/vendor/telescope')
     .webpackConfig({
         resolve: {
             symlinks: false,
