@@ -12,10 +12,46 @@ A simple blog package written for Laravel. Take a look at [contributing.md](cont
 Via Composer
 
 ``` bash
-$ composer require wingsline/blog
+composer require wingsline/blog
 ```
 
+Clone the your theme or the default theme into the theme folder:
+
+```bash
+git clone https://github.com/wingsline/blog-theme.git theme
+```
+
+Configure the Laravel installation, making sure the cache driver supports tags and the database is configured.
+
+The default admin url is ‘admin’, customize with the `ADMIN_PREFIX` in your `.env` file.
+
+Run the installer:
+
+```bash
+php artisan blog:install
+```
+
+The installer will publish the blog assets, default configuration files. Also it will migrate the database.
+
+
 ## Usage
+
+You can access your blog admin interface at `https://example.com/admin`.
+
+Default login:
+
+* Username: `admin@example.com`
+* Password: `admin123`
+
+The admin uses [EasyMde](https://github.com/Ionaru/easy-markdown-editor) as the content editor with the [michelf/php-markdown](https://github.com/michelf/php-markdown) parser.
+
+### Uploading images
+
+For existing posts you can upload or drag and drop images (png, jpg) in the editor. 
+
+For new posts, you need to save the post first before uploading an image.
+
+Other filetype uploads currently are not supported.
 
 ## Change log
 
@@ -29,7 +65,7 @@ $ composer test
 
 ## Contributing
 
-Please see [contributing.md](contributing.md) for details and a todolist.
+Please see [contributing.md](contributing.md) for details and a todo list.
 
 ## Security
 
