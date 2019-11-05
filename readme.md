@@ -23,7 +23,7 @@ git clone https://github.com/wingsline/blog-theme.git theme
 
 Configure the Laravel installation, making sure the cache driver supports tags and the database is configured.
 
-The default admin url is ‘admin’, customize with the `ADMIN_PREFIX` in your `.env` file.
+The default admin url is `/admin`, customize with the `ADMIN_PREFIX` in your `.env` file.
 
 Run the installer:
 
