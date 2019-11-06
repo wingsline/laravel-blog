@@ -138,7 +138,7 @@ class PostsController extends BaseController
         }
 
         return [
-            'data' => ['filePath' => ltrim($media->getUrl(), '/')],
+            'data' => ['filePath' => ltrim(parse_url($media->getFullUrl(), PHP_URL_PATH), '/')],
         ];
     }
 }
