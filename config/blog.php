@@ -1,6 +1,7 @@
 <?php
 
 use Wingsline\Blog\Posts\Post;
+use Wingsline\Blog\Markdown\Markdown;
 
 return [
     /*
@@ -42,6 +43,18 @@ return [
         'language' => 'en-US',
         'view' => 'feed::atom',
         'type' => 'application/atom+xml',
-    ]
+    ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Markdown Parser class and method name
+    |--------------------------------------------------------------------------
+    |
+    | Set the markdown parser class and method name here
+    |
+    */
+    'markdown_parser' => [
+        'class' => Markdown::class,
+        'method' => 'convertToHtml'
+    ]
 ];

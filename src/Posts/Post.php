@@ -10,6 +10,7 @@ use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
+use Wingsline\Blog\Markdown\Markdown;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
@@ -71,8 +72,6 @@ class Post extends Model implements Feedable, HasMedia
 
     /**
      * Slug options.
-     *
-     * @return SlugOptions
      */
     public function getSlugOptions(): SlugOptions
     {
@@ -90,7 +89,7 @@ class Post extends Model implements Feedable, HasMedia
      */
     public function getTextAttribute($original)
     {
-        return MarkdownExtra::defaultTransform($original);
+        return Markdown::convertWithParser($original);
     }
 
     public function scopePublic(Builder $query)
@@ -119,8 +118,6 @@ class Post extends Model implements Feedable, HasMedia
 
     /**
      * Update model attributes from the form.
-     *
-     * @param array $attributes
      *
      * @return static
      */
