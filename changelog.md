@@ -13,3 +13,9 @@ All notable changes to `Blog` will be documented in this file.
 - Specify a custom markdown parser in the `config/blog.php` file.
 - Images now have a `srcset` attribute.
 - Detect high pixel density images and specify that in the image's `srcset` (requires `imagick` PHP extension).
+
+## Version 1.1.1
+
+### Fixed
+- response cache not cleared
+- disable response cache in the `.env` with `RESPONSE_CACHE_ENABLED=false`
