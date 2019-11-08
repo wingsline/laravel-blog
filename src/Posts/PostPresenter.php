@@ -16,12 +16,16 @@ trait PostPresenter
 
         $excerpt = trim($this->text);
 
+        // before the 1st blockquote
         $excerpt = Str::before($excerpt, '<blockquote>');
 
-        //remove html
+        // after the h1, since we should have only one h1 on top of the article
+        $excerpt = Str::after($excerpt, '</h1>');
+
+        // remove html
         $excerpt = strip_tags($excerpt);
 
-        //replace multiple spaces
+        // replace multiple spaces
         $excerpt = preg_replace('/\\s+/', ' ', $excerpt);
 
         if (0 == \strlen($excerpt)) {
