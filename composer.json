@@ -23,7 +23,8 @@
         "spatie/laravel-responsecache": "^6.0",
         "spatie/laravel-sluggable": "^2.2",
         "spatie/laravel-tags": "^2.0",
-        "michelf/php-markdown": "^1.8"
+        "michelf/php-markdown": "^1.8",
+        "intervention/image": "^2.5"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0",
