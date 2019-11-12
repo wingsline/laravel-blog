@@ -38,7 +38,7 @@ return [
     'feed' => [
         'items' => Post::class . '@getFeedItems',
         'url' => '/feed/blog',
-        'title' => env('APP_NAME'),
+        'title' => config('app.name'),
         'description' => config('theme.meta.description', ''),
         'language' => 'en-US',
         'view' => 'feed::atom',

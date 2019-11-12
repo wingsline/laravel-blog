@@ -2,19 +2,22 @@
 
 namespace Wingsline\Blog\Tests;
 
+use Illuminate\Foundation\Auth\User;
 use Spatie\Feed\FeedServiceProvider;
-use Illuminate\Support\Facades\Schema;
 use Wingsline\Blog\BlogServiceProvider;
 use Spatie\Menu\Laravel\MenuServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\ResponseCache\ResponseCacheServiceProvider;
 
-abstract class TestCase extends Orchestra
+class TestCase extends Orchestra
 {
+    /**
+     * Setup the test environment.
+     */
     protected function setUp(): void
     {
         parent::setUp();
-        $this->setUpDatabase();
+        $this->withFactories(__DIR__ . '/../database/factories');
     }
 
     /**
@@ -24,35 +27,75 @@ abstract class TestCase extends Orchestra
      */
     public function getEnvironmentSetUp($app)
     {
-        // test theme
-        view()->getFinder()->prependLocation(__DIR__ . '/Feature/theme');
-    }
+        config()->set(
+            'app.key',
+            'base64:Uwel3ChfCJxTRmm/GnLlYeJOBexN6u3Wp2sfkgnzdkw='
+        );
+        config()->set('app.debug', true);
+        config()->set('app.name', 'wingsline-blog');
 
-    public function setUpDatabase()
-    {
-        $this->withFactories(__DIR__ . '/../database/factories');
-        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
+        config()->set('database.default', 'mysql');
+        config()->set('database.connections.mysql', [
+            'driver' => 'mysql',
+            'host' => 'localhost',
+            'database' => 'test_packages_blog',
+            'username' => 'root',
+            'password' => 'secret',
+            'prefix' => '',
+            'unix_socket' => '/opt/local/var/run/mysql57/mysqld.sock',
+        ]);
 
-        Schema::dropIfExists('taggables');
-        Schema::dropIfExists('tags');
-        include_once __DIR__ . '/../../../../vendor/spatie/laravel-tags/database/migrations/create_tag_tables.php.stub';
-        (new \CreateTagTables())->up();
+        view()->getFinder()->prependLocation(__DIR__ . '/sample-theme');
+
+        // copy migration stubs from vendor packages
+
+        // spatie/laravel-tags
+        copy(
+            __DIR__ . '/../vendor/spatie/laravel-tags/database/migrations/create_tag_tables.php.stub',
+            __DIR__ . '/vendor-migrations/0000_00_00_000000_create_tag_tables.php'
+        );
     }
 
     /**
-     * Get package providers.
+     * Creates and logs in a sample user.
+     *
+     * @param mixed $attributes
+     *
+     * @return User
+     */
+    public function loginUser($attributes = ['email' => 'foo@example.com', 'name' => 'Foo'])
+    {
+        $attributes['password'] = bcrypt('secret');
+
+        $user = new User();
+        $user->unguard();
+        $user->fill($attributes)->save();
+
+        $this->be($user);
+
+        return $user;
+    }
+
+    /**
+     * Get application providers.
      *
      * @param \Illuminate\Foundation\Application $app
      *
      * @return array
      */
-    protected function getPackageProviders($app)
+    protected function getApplicationProviders($app)
     {
-        return [
-            ResponseCacheServiceProvider::class,
-            FeedServiceProvider::class,
-            MenuServiceProvider::class,
-            BlogServiceProvider::class,
-        ];
+        $providers = array_merge(
+            $app['config']['app.providers'],
+            [
+                TestingServiceProvider::class,
+                BlogServiceProvider::class,
+                FeedServiceProvider::class,
+                MenuServiceProvider::class,
+                ResponseCacheServiceProvider::class,
+            ]
+        );
+
+        return $providers;
     }
 }

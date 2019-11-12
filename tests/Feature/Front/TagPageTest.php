@@ -1,6 +1,6 @@
 <?php
 
-namespace Wingsline\Blog\Tests\Feature;
+namespace Wingsline\Blog\Tests\Feature\Front;
 
 use Wingsline\Blog\Posts\Post;
 use Wingsline\Blog\Tests\TestCase;
@@ -10,6 +10,9 @@ class TagPageTest extends TestCase
 {
     use RefreshDatabase;
 
+    /**
+     * @covers \Wingsline\Blog\Http\Controllers\Front\TaggedPostsController::__invoke()
+     */
     public function testIt_shows_the_tagged_posts()
     {
         $post = factory(Post::class)->create(['title' => 'foo-title', 'published' => 1]);
