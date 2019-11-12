@@ -78,7 +78,7 @@ class Markdown extends MarkdownExtra
             $manager = new ImageManager(['driver' => 'imagick']);
             $img = $manager->make($image_url)->getCore();
         } catch (\Exception $e) {
-            return $result . '"';
+            return '';
         }
 
         $unit = $img->getImageUnits();
