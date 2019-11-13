@@ -15,6 +15,7 @@ use Wingsline\Blog\Console\ThemePublishCommand;
 use Wingsline\Blog\Http\Middleware\Authenticate;
 use Wingsline\Blog\Http\Middleware\NoHttpCache;
 use Wingsline\Blog\Posts\Post;
+use Wingsline\Blog\Posts\PostObserver;
 
 class BlogServiceProvider extends ServiceProvider
 {
@@ -59,23 +60,17 @@ class BlogServiceProvider extends ServiceProvider
         $this->app['router']->middlewareGroup('blog-auth', [Authenticate::class]);
         $this->app['router']->middlewareGroup('blog-nocache', [NoHttpCache::class]);
         $this->app['router']->middlewareGroup('blog-cacheResponse', [CacheResponse::class]);
+
         // router bindings
         $this->registerRouteModelBindings();
+
+        // model event observers
+        Post::observe(PostObserver::class);
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
-    }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        return ['blog'];
     }
 
     /**

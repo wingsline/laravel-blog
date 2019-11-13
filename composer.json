@@ -1,6 +1,6 @@
 {
     "name": "wingsline/blog",
-    "description": ":description",
+    "description": "A blog package for Laravel",
     "license": "MIT",
     "authors": [
         {

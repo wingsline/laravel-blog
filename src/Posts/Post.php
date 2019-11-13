@@ -126,7 +126,6 @@ class Post extends Model implements Feedable, HasMedia
 
             $this->syncTags($tags);
         }
-        ResponseCache::clear();
 
         return $this;
     }
