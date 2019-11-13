@@ -34,8 +34,6 @@ class PostsController extends BaseController
     /**
      * Remove the specified resource from storage.
      *
-     * @param Post $post
-     *
      * @throws \Exception
      *
      * @return \Illuminate\Http\Response
@@ -76,8 +74,6 @@ class PostsController extends BaseController
     /**
      * Generates a markdown preview for the post.
      *
-     * @param Post $post
-     *
      * @return array
      */
     public function preview(Post $post)
@@ -106,9 +102,6 @@ class PostsController extends BaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param PostRequest $request
-     * @param Post        $post
-     *
      * @return \Illuminate\Http\Response
      */
     public function update(PostRequest $request, Post $post)
@@ -122,9 +115,6 @@ class PostsController extends BaseController
 
     /**
      * Upload an image.
-     *
-     * @param Post               $post
-     * @param ImageUploadRequest $request
      *
      * @return array
      */

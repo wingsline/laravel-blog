@@ -62,9 +62,10 @@ class Markdown extends MarkdownExtra
     }
 
     /**
-     * Returns 2x if the image is high pixel density
+     * Returns 2x if the image is high pixel density.
      *
-     * @param  string $image_url
+     * @param string $image_url
+     *
      * @return string
      */
     public function getImagePixelDensity($image_url)
