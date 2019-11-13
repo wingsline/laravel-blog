@@ -2,18 +2,18 @@
 
 namespace Wingsline\Blog\Posts;
 
-use Spatie\Tags\HasTags;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
-use Spatie\Sluggable\HasSlug;
-use Spatie\Sluggable\SlugOptions;
-use Illuminate\Support\Facades\Auth;
-use Wingsline\Blog\Markdown\Markdown;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\ResponseCache\Facades\ResponseCache;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
+use Spatie\Tags\HasTags;
+use Wingsline\Blog\Markdown\Markdown;
 
 class Post extends Model implements Feedable, HasMedia
 {

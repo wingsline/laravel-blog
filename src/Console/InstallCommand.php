@@ -3,15 +3,15 @@
 namespace Wingsline\Blog\Console;
 
 use Illuminate\Console\Command;
-use Spatie\Csp\CspServiceProvider;
-use Spatie\Feed\FeedServiceProvider;
-use Spatie\Tags\TagsServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Spatie\Backup\BackupServiceProvider;
-use Wingsline\Blog\Database\Seeds\UsersTableSeeder;
+use Spatie\Csp\CspServiceProvider;
+use Spatie\Feed\FeedServiceProvider;
 use Spatie\MediaLibrary\MediaLibraryServiceProvider;
-use Spatie\ResponseCache\ResponseCacheServiceProvider;
 use Spatie\MissingPageRedirector\MissingPageRedirectorServiceProvider;
+use Spatie\ResponseCache\ResponseCacheServiceProvider;
+use Spatie\Tags\TagsServiceProvider;
+use Wingsline\Blog\Database\Seeds\UsersTableSeeder;
 
 class InstallCommand extends Command
 {

@@ -2,19 +2,19 @@
 
 namespace Wingsline\Blog;
 
-use Spatie\Tags\Tag;
-use Spatie\Flash\Flash;
-use Spatie\Menu\Laravel\Link;
-use Wingsline\Blog\Posts\Post;
 use Illuminate\Support\Facades\Route;
-use Spatie\Menu\Laravel\Facades\Menu;
 use Illuminate\Support\ServiceProvider;
+use Spatie\Flash\Flash;
+use Spatie\Menu\Laravel\Facades\Menu;
+use Spatie\Menu\Laravel\Link;
+use Spatie\ResponseCache\Middlewares\CacheResponse;
+use Spatie\Tags\Tag;
 use Wingsline\Blog\Console\InstallCommand;
 use Wingsline\Blog\Console\PublishCommand;
 use Wingsline\Blog\Console\ThemePublishCommand;
-use Wingsline\Blog\Http\Middleware\NoHttpCache;
 use Wingsline\Blog\Http\Middleware\Authenticate;
-use Spatie\ResponseCache\Middlewares\CacheResponse;
+use Wingsline\Blog\Http\Middleware\NoHttpCache;
+use Wingsline\Blog\Posts\Post;
 
 class BlogServiceProvider extends ServiceProvider
 {

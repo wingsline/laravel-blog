@@ -2,14 +2,14 @@
 
 namespace Wingsline\Blog\Http\Controllers;
 
-use Wingsline\Blog\Posts\Post;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Wingsline\Blog\Http\Requests\PostRequest;
-use Illuminate\Routing\Controller as BaseController;
-use Wingsline\Blog\Http\Requests\ImageUploadRequest;
-use Spatie\MediaLibrary\Exceptions\FileCannotBeAdded;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
+use Spatie\MediaLibrary\Exceptions\FileCannotBeAdded;
+use Wingsline\Blog\Http\Requests\ImageUploadRequest;
+use Wingsline\Blog\Http\Requests\PostRequest;
+use Wingsline\Blog\Posts\Post;
 
 class PostsController extends BaseController
 {

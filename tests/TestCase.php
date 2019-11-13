@@ -3,11 +3,11 @@
 namespace Wingsline\Blog\Tests;
 
 use Illuminate\Foundation\Auth\User;
-use Spatie\Feed\FeedServiceProvider;
-use Wingsline\Blog\BlogServiceProvider;
-use Spatie\Menu\Laravel\MenuServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Spatie\Feed\FeedServiceProvider;
+use Spatie\Menu\Laravel\MenuServiceProvider;
 use Spatie\ResponseCache\ResponseCacheServiceProvider;
+use Wingsline\Blog\BlogServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -50,10 +50,10 @@ class TestCase extends Orchestra
         // copy migration stubs from vendor packages
 
         // spatie/laravel-tags
-        copy(
-            __DIR__ . '/../vendor/spatie/laravel-tags/database/migrations/create_tag_tables.php.stub',
-            __DIR__ . '/vendor-migrations/0000_00_00_000000_create_tag_tables.php'
-        );
+        // copy(
+        //     __DIR__ . '/../vendor/spatie/laravel-tags/database/migrations/create_tag_tables.php.stub',
+        //     __DIR__ . '/vendor-migrations/0000_00_00_000000_create_tag_tables.php'
+        // );
     }
 
     /**

@@ -2,11 +2,11 @@
 
 namespace Wingsline\Blog\Http\Controllers\Front;
 
-use Wingsline\Blog\Posts\Post;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
+use Wingsline\Blog\Posts\Post;
 
 class PostsController extends BaseController
 {

@@ -2,9 +2,9 @@
 
 namespace Wingsline\Blog\Tests\Feature\Front;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Wingsline\Blog\Posts\Post;
 use Wingsline\Blog\Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class FeedTest extends TestCase
 {

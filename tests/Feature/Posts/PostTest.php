@@ -2,9 +2,9 @@
 
 namespace Wingsline\Blog\Tests\Feature\Posts;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Wingsline\Blog\Posts\Post;
 use Wingsline\Blog\Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class PostTest extends TestCase
 {

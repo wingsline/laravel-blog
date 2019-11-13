@@ -2,8 +2,8 @@
 
 namespace Wingsline\Blog\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
 class ImageUploadRequest extends FormRequest

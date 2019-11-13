@@ -2,8 +2,8 @@
 
 namespace Wingsline\Blog\Markdown;
 
-use Michelf\MarkdownExtra;
 use Intervention\Image\ImageManager;
+use Michelf\MarkdownExtra;
 
 class Markdown extends MarkdownExtra
 {

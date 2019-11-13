@@ -44,8 +44,8 @@ $config = PhpCsFixer\Config::create()
             'align_double_arrow' => false,
             'align_equals' => false,
         ],
-        // 'blank_line_after_opening_tag' => true,
-        // 'blank_line_before_return' => true,
+        'blank_line_after_opening_tag' => true,
+        'blank_line_before_return' => true,
         'braces' => [
             'allow_single_line_closure' => true,
         ],
