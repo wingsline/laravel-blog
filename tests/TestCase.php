@@ -4,7 +4,9 @@ namespace Wingsline\Blog\Tests;
 
 use Illuminate\Foundation\Auth\User;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Spatie\Csp\CspServiceProvider;
 use Spatie\Feed\FeedServiceProvider;
+use Spatie\MediaLibrary\MediaLibraryServiceProvider;
 use Spatie\Menu\Laravel\MenuServiceProvider;
 use Spatie\ResponseCache\ResponseCacheServiceProvider;
 use Wingsline\Blog\BlogServiceProvider;
@@ -18,6 +20,7 @@ class TestCase extends Orchestra
     {
         parent::setUp();
         $this->withFactories(__DIR__ . '/../database/factories');
+        $this->app->instance('path.public', realpath(__DIR__ . '/public'));
     }
 
     /**
@@ -93,6 +96,8 @@ class TestCase extends Orchestra
                 FeedServiceProvider::class,
                 MenuServiceProvider::class,
                 ResponseCacheServiceProvider::class,
+                CspServiceProvider::class,
+                MediaLibraryServiceProvider::class,
             ]
         );
 

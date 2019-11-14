@@ -30,8 +30,8 @@ class ImageUploadRequest extends FormRequest
         return [
             'image' => [
                 'required',
-                'image',
                 'mimes:jpeg,png',
+                'image',
                 'max:' . $size,
             ],
         ];

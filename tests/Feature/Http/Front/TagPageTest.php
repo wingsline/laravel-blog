@@ -1,6 +1,6 @@
 <?php
 
-namespace Wingsline\Blog\Tests\Feature\Front;
+namespace Wingsline\Blog\Tests\Feature\Http\Front;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Wingsline\Blog\Posts\Post;
