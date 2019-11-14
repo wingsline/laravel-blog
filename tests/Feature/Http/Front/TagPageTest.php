@@ -15,9 +15,17 @@ class TagPageTest extends TestCase
      */
     public function testIt_shows_the_tagged_posts()
     {
-        $post = factory(Post::class)->create(['title' => 'foo-title', 'published' => 1]);
+        $post = factory(Post::class)
+            ->create([
+                'title' => 'foo-title',
+                'published' => 1
+            ]);
         $post->syncTags(['foo', 'bar']);
-        factory(Post::class)->create(['title' => 'bar-title', 'published' => 1]);
+        factory(Post::class)
+            ->create([
+                'title' => 'bar-title',
+                'published' => 1
+            ]);
 
         $response = $this->get('/tag/foo');
 

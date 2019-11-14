@@ -20,7 +20,7 @@ class PostsController extends BaseController
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function create()
     {
@@ -34,9 +34,9 @@ class PostsController extends BaseController
     /**
      * Remove the specified resource from storage.
      *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      * @throws \Exception
      *
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)
     {
@@ -52,7 +52,7 @@ class PostsController extends BaseController
      *
      * @param int $id
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function edit(Post $post)
     {
@@ -62,11 +62,12 @@ class PostsController extends BaseController
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function index()
     {
-        $posts = Post::orderBy('publish_date', 'desc')->paginate(config('admin.per_page'));
+        $posts = Post::orderBy('publish_date',
+            'desc')->paginate(config('admin.per_page'));
 
         return view('blog::posts.index', compact('posts'));
     }
@@ -88,7 +89,7 @@ class PostsController extends BaseController
      *
      * @param \Illuminate\Http\Request $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function store(PostRequest $request)
     {
@@ -102,7 +103,7 @@ class PostsController extends BaseController
     /**
      * Update the specified resource in storage.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function update(PostRequest $request, Post $post)
     {
@@ -116,7 +117,7 @@ class PostsController extends BaseController
     /**
      * Upload an image.
      *
-     * @return array
+     * @return array|\Illuminate\Http\JsonResponse
      */
     public function upload(Post $post, ImageUploadRequest $request)
     {
@@ -128,7 +129,13 @@ class PostsController extends BaseController
         }
 
         return [
-            'data' => ['filePath' => ltrim(parse_url($media->getFullUrl(), PHP_URL_PATH), '/')],
+            'data' => [
+                'filePath' => ltrim(
+                    parse_url($media->getFullUrl(),
+                    PHP_URL_PATH),
+                    '/'
+                )
+            ],
         ];
     }
 }

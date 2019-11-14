@@ -66,8 +66,9 @@ class TestCase extends Orchestra
      *
      * @return User
      */
-    public function loginUser($attributes = ['email' => 'foo@example.com', 'name' => 'Foo'])
-    {
+    public function loginUser(
+        $attributes = ['email' => 'foo@example.com', 'name' => 'Foo']
+    ) {
         $attributes['password'] = bcrypt('secret');
 
         $user = new User();

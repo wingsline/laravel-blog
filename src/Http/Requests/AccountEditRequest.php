@@ -27,8 +27,20 @@ class AccountEditRequest extends FormRequest
 
         return [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . $auth_user->id],
-            'password' => ['present', 'string', 'nullable', 'min:8', 'confirmed'],
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                'unique:users,email,' . $auth_user->id
+            ],
+            'password' => [
+                'present',
+                'string',
+                'nullable',
+                'min:8',
+                'confirmed'
+            ],
             'password_confirmation' => ['present', 'string', 'nullable'],
         ];
     }

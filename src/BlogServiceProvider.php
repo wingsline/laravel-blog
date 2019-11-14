@@ -49,7 +49,8 @@ class BlogServiceProvider extends ServiceProvider
             return Menu::new()
                 ->addClass('flex items-center')
                 ->addItemClass('p-2')
-                ->add(Link::toUrl('/', 'Site')->setAttribute('target', '_blank'))
+                ->add(Link::toUrl('/', 'Site')->setAttribute('target',
+                    '_blank'))
                 ->route('admin.posts.index', 'Posts')
                 ->route('admin.account.edit', 'Account')
                 ->view('blog::layouts.partials.logout')
@@ -57,9 +58,12 @@ class BlogServiceProvider extends ServiceProvider
         });
 
         // register the route middleware groups
-        $this->app['router']->middlewareGroup('blog-auth', [Authenticate::class]);
-        $this->app['router']->middlewareGroup('blog-nocache', [NoHttpCache::class]);
-        $this->app['router']->middlewareGroup('blog-cacheResponse', [CacheResponse::class]);
+        $this->app['router']->middlewareGroup('blog-auth',
+            [Authenticate::class]);
+        $this->app['router']->middlewareGroup('blog-nocache',
+            [NoHttpCache::class]);
+        $this->app['router']->middlewareGroup('blog-cacheResponse',
+            [CacheResponse::class]);
 
         // router bindings
         $this->registerRouteModelBindings();

@@ -82,7 +82,8 @@ class PostsControllerTest extends TestCase
     public function testPreview()
     {
         $user = $this->loginUser();
-        $response = $this->be($user)->post('admin/posts/preview', ['payload' => '# foo']);
+        $response = $this->be($user)->post('admin/posts/preview',
+            ['payload' => '# foo']);
 
         $response->assertStatus(200);
         $response->assertJson(['data' => ['html' => "<h1>foo</h1>\n"]]);
@@ -212,10 +213,11 @@ class PostsControllerTest extends TestCase
     {
         $post = factory(Post::class)->create(['title' => 'foo-title']);
         $user = $this->loginUser();
-        $response = $this->be($user)->post(
-            'admin/posts/upload/' . $post->id,
-            ['image' => 'invalid']
-        );
+        $response = $this->be($user)
+            ->post(
+                'admin/posts/upload/' . $post->id,
+                ['image' => 'invalid']
+            );
 
         $response->assertStatus(422);
         $response->assertJson(

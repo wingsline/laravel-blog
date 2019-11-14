@@ -40,6 +40,9 @@ class ImageUploadRequest extends FormRequest
     protected function failedValidation(Validator $validator)
     {
         // make sure we return the proper error for easymde
-        throw new HttpResponseException(response()->json(['error' => $validator->errors()->first('image')], 422));
+        throw new HttpResponseException(
+            response()->json(['error' => $validator->errors()->first('image')],
+                422)
+        );
     }
 }

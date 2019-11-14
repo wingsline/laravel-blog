@@ -45,9 +45,19 @@ class PostTest extends TestCase
      */
     public function testScopePublic()
     {
-        factory(Post::class)->create(['title' => 'foo-title', 'publish_date' => now()]);
-        factory(Post::class)->create(['title' => 'bar-title', 'publish_date' => now()->subDay()]);
-        factory(Post::class)->create(['title' => 'baz-title', 'publish_date' => now()->addDay()]);
+        factory(Post::class)
+            ->create([
+                'title' => 'foo-title',
+                'publish_date' => now()
+            ]);
+        factory(Post::class)->create([
+            'title' => 'bar-title',
+            'publish_date' => now()->subDay()
+        ]);
+        factory(Post::class)->create([
+            'title' => 'baz-title',
+            'publish_date' => now()->addDay()
+        ]);
 
         $posts = Post::public()->get();
         self::assertCount(2, $posts);
@@ -62,8 +72,14 @@ class PostTest extends TestCase
      */
     public function testScopePublished()
     {
-        factory(Post::class)->create(['title' => 'foo-title', 'published' => 0]);
-        factory(Post::class)->create(['title' => 'bar-title', 'published' => 1]);
+        factory(Post::class)->create([
+            'title' => 'foo-title',
+            'published' => 0
+        ]);
+        factory(Post::class)->create([
+            'title' => 'bar-title',
+            'published' => 1
+        ]);
 
         $posts = Post::published()->get();
         self::assertCount(1, $posts);
@@ -97,11 +113,14 @@ class PostTest extends TestCase
         // assetions
         self::assertSame($post->getOriginal('title'), 'bar-title');
         self::assertSame($post->getOriginal('text'), 'foo-text');
-        self::assertSame($post->getOriginal('publish_date'), $now->format('Y-m-d H:i:s'));
+        self::assertSame($post->getOriginal('publish_date'),
+            $now->format('Y-m-d H:i:s'));
         self::assertSame($post->getOriginal('published'), 1);
         self::assertSame($post->getOriginal('original_content'), 1);
-        self::assertSame($post->getOriginal('external_url'), 'http://foo.example.com');
-        self::assertSame($post->getOriginal('author'), $user->getAttribute('name'));
+        self::assertSame($post->getOriginal('external_url'),
+            'http://foo.example.com');
+        self::assertSame($post->getOriginal('author'),
+            $user->getAttribute('name'));
         self::assertSame($post->tags->pluck('name')->toArray(), ['foo', 'bar']);
     }
 }
