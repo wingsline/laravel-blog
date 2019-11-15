@@ -83,7 +83,7 @@ MIT. Please see the [license file](license.md) for more information.
 [ico-version]: https://img.shields.io/packagist/v/wingsline/blog.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/wingsline/blog.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/wingsline/blog/master.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/12345678/shield
+[ico-styleci]: https://styleci.io/repos/219611248/shield
 
 [link-packagist]: https://packagist.org/packages/wingsline/blog
 [link-downloads]: https://packagist.org/packages/wingsline/blog
