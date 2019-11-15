@@ -88,6 +88,6 @@ MIT. Please see the [license file](license.md) for more information.
 [link-packagist]: https://packagist.org/packages/wingsline/blog
 [link-downloads]: https://packagist.org/packages/wingsline/blog
 [link-travis]: https://travis-ci.org/wingsline/blog
-[link-styleci]: https://styleci.io/repos/12345678
+[link-styleci]: https://styleci.io/repos/219611248
 [link-author]: https://github.com/wingsline
 [link-contributors]: ../../contributors
