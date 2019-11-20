@@ -2,10 +2,21 @@
 
 All notable changes to `Blog` will be documented in this file.
 
-## Version 1.0
+## Version 1.2.0
 
-### Added
-- Everything
+### New
+- Configure admin menus in the config file.
+- New admin UI based on [tailwindcss](https://tailwindcss.com).
+
+### Fixed
+- SVG icons inside buttons didn't trigger the confirm dialog.
+- Fix per page not honored on post list.
+
+## Version 1.1.1
+
+### Fixed
+- Response cache not cleared.
+- Disable response cache in the `.env` with `RESPONSE_CACHE_ENABLED=false`.
 
 ## Version 1.1
 
@@ -14,8 +25,9 @@ All notable changes to `Blog` will be documented in this file.
 - Images now have a `srcset` attribute.
 - Detect high pixel density images and specify that in the image's `srcset` (requires `imagick` PHP extension).
 
-## Version 1.1.1
+## Version 1.0
 
-### Fixed
-- response cache not cleared
-- disable response cache in the `.env` with `RESPONSE_CACHE_ENABLED=false`
+### Added
+- Everything.
+
+
