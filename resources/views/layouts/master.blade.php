@@ -55,7 +55,7 @@
             </div>
         </div>
     </header>
-    <div class="container">
+    <div class="lg:flex lg:flex-1 container">
         @auth
             <aside class="z-50 fixed lg:block inset-0 mt-16 lg:mt-0 bg-white px-8 py-5 sr-only lg:not-sr-only lg:w-1/4" id="admin-nav" aria-expanded="false">
                 <nav class="px-4 h-full overflow-auto">
