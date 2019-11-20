@@ -54,6 +54,8 @@ mix.purgeCss({
         /hr/,
         // classnames in the service provider
         /p-2/,
+        /ml-5/,
+        /ml-6/,
         /flex/,
         /items-center/
     ]

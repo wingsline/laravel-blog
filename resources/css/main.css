@@ -11,6 +11,7 @@
 @import "tailwindcss/base";
 @import "./base/links.css";
 @import "./base/labels.css";
+@import "./base/svg.css";
 
 /* @tailwind components; */
 @import "tailwindcss/components";
@@ -20,6 +21,9 @@
 
 /* @tailwind utilities; */
 @import "tailwindcss/utilities";
+
+/* helpers */
+@import "./utilities/helpers.css";
 
 /* fontawesome and easymde */
 @import "./vendor/fontawesome.css";

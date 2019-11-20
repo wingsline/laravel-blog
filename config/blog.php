@@ -31,6 +31,34 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Header navigation
+    |--------------------------------------------------------------------------
+    |
+    | This is the header navigation. It uses views as menu items.
+    |
+    */
+    'navHeader' => [
+        'blog::layouts.nav.items.site',
+        'blog::layouts.nav.items.account',
+        'blog::layouts.nav.items.logout'
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Admin navigation
+    |--------------------------------------------------------------------------
+    |
+    | Main admin navigation
+    |
+    */
+    'navAdmin' => [
+        'blog::layouts.nav.dashboard',
+        'blog::layouts.nav.blog',
+        'blog::layouts.nav.account',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Feed configuration
     |--------------------------------------------------------------------------
     |

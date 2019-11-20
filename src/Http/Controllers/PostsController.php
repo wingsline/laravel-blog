@@ -67,7 +67,7 @@ class PostsController extends BaseController
     public function index()
     {
         $posts = Post::orderBy('publish_date',
-            'desc')->paginate(config('admin.per_page'));
+            'desc')->paginate(config('blog.per_page'));
 
         return view('blog::posts.index', compact('posts'));
     }

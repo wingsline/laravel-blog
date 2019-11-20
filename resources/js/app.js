@@ -1,5 +1,6 @@
 // markdown editor
 import EasyMDE from "./vendor/easymde/easymde";
+import "./includes/toggle";
 const axios = require('axios').default;
 
 const editors = document.getElementsByClassName("markdown-editor");

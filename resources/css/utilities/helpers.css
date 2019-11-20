@@ -1,0 +1,12 @@
+/* ==========================================================================
+  helpers.css
+   ========================================================================== */
+
+.active a {
+    @apply bg-green-100 font-semibold;
+}
+
+/* Blocks the scrolling of an element */
+.block-scroll {
+    @apply fixed overflow-hidden w-screen;
+}

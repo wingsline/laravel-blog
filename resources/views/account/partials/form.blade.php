@@ -18,7 +18,7 @@
 {{-- new password --}}
 <div class="mb-4 w-full">
     <label for="password">{{ __('New Password') }}</label>
-    <input class="text-input" id="password" type="password" value="" name="password">
+    <input class="text-input" id="password" type="password" value="" name="password" autocomplete="new-password">
     <p class="text-xs text-red-700 mt-1">
         @error('password') {{ $message }} @enderror
     </p>
@@ -26,7 +26,7 @@
 {{-- new password confirm --}}
 <div class="mb-4 w-full">
     <label for="password_confirmation">{{ __('Confirm New Password') }}</label>
-    <input class="text-input" id="password_confirmation" type="password" value="" name="password_confirmation">
+    <input class="text-input" id="password_confirmation" type="password" value="" name="password_confirmation" autocomplete="new-password">
     <p class="text-xs text-red-700 mt-1">
         @error('password_confirmation') {{ $message }} @enderror
     </p>

@@ -1,8 +1,8 @@
 @extends('blog::layouts.master')
 
 @section('content')
-<div class="w-full justify-center items-center sm:items-start flex h-screen">
-    <form class="bg-white shadow-lg rounded px-8 pt-8 pb-8 sm:mt-40 border-t-8 border-gray-400" method="POST" action="{{ route('admin.login') }}">
+<div class="w-full justify-center items-center sm:items-start flex pt-12">
+    <form class="w-full sm:w-auto rounded px-8  pb-8 sm:mt-40 border-gray-400" method="POST" action="{{ route('admin.login') }}">
         @csrf
         <div class="mb-4">
             <label for="email">

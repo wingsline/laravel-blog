@@ -1,12 +1,30 @@
-<li class="flex items-center px-3 bg-white uppercase text-xs text-gray-600 font-semibold whitespace-no-wrap border-b">
-    <div class="flex flex-grow py-3 block truncate">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 text-gray-400"><title>{{ __('Published') }}</title><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-        Post
+<div class="flex justify-between items-center bg-gray-100 px-4 sm:px-6">
+    <div class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1" stroke-linecap="round"
+             stroke-linejoin="round"
+             class="text-4xl sm:text-5xl text-indigo-300">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path
+                d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+        <div class="my-2 sm:my-4 ml-2 sm:ml-4">
+            <h1 class="text-lg sm:text-2xl text-gray-700">{{ __($title) }}</h1>
+            <p class="text-xs sm:text-sm text-gray-500">{{ __($description) }}</p>
+        </div>
     </div>
-    <div class="w-40 text-right pr-4 truncate">Publish Date</div>
-    <div>
-        <button type="button" class="px-2 bg-transparent text-gray-400 hover:text-gray-400 cursor-auto">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>{{ __('Delete') }}</title><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
-        </button>
-    </div>
-</li>
+    <a href="{{ route('admin.posts.create') }}"
+       class="ml-2 btn flex items-center  px-3 sm:px-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round"
+             stroke-linejoin="round" class="sm:mr-2">
+            <path
+                d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+            <path
+                d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+        </svg>
+        <span class="sr-only sm:not-sr-only">New Post</span>
+    </a>
+</div>

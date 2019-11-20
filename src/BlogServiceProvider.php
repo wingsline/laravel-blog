@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Spatie\Flash\Flash;
 use Spatie\Menu\Laravel\Facades\Menu;
 use Spatie\Menu\Laravel\Link;
+use Spatie\Menu\Laravel\View;
 use Spatie\ResponseCache\Middlewares\CacheResponse;
 use Spatie\Tags\Tag;
 use Wingsline\Blog\Console\InstallCommand;
@@ -45,15 +46,24 @@ class BlogServiceProvider extends ServiceProvider
             'error' => 'bg-red-500',
         ]);
 
-        Menu::macro('admin', function () {
-            return Menu::new()
-                ->addClass('flex items-center')
+        Menu::macro('blogAdminNavHeader', function () {
+            return Menu::build(
+                config('blog.navHeader'),
+                function (\Spatie\Menu\Laravel\Menu $menu, $view) {
+                    $menu->add(View::create($view)->addParentClass('ml-5 lg:ml-6'));
+                })
+                ->addClass('flex items-end lg:items-center lg:pr-2')
                 ->addItemClass('p-2')
-                ->add(Link::toUrl('/', 'Site')->setAttribute('target',
-                    '_blank'))
-                ->route('admin.posts.index', 'Posts')
-                ->route('admin.account.edit', 'Account')
-                ->view('blog::layouts.partials.logout')
+                ->setActiveFromRequest('/');
+        });
+
+        Menu::macro('blogAdminNav', function () {
+            return Menu::build(
+                config('blog.navAdmin'),
+                function (\Spatie\Menu\Laravel\Menu $menu, $view) {
+                    $menu->add(View::create($view)->addParentClass(''));
+                })
+                ->addItemClass('p-2')
                 ->setActiveFromRequest('/');
         });
 

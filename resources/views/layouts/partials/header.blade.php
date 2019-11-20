@@ -5,7 +5,7 @@
         </h1>
 
         @auth
-            <nav>{{ \Spatie\Menu\Laravel\Facades\Menu::admin() }}</nav>
+{{--            <nav>{{ \Spatie\Menu\Laravel\Facades\Menu::admin() }}</nav>--}}
         @endauth
     </div>
 </header>
