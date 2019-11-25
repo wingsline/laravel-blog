@@ -115,8 +115,8 @@ class PostTest extends TestCase
         self::assertSame($post->getOriginal('text'), 'foo-text');
         self::assertSame($post->getOriginal('publish_date'),
             $now->format('Y-m-d H:i:s'));
-        self::assertSame($post->getOriginal('published'), 1);
-        self::assertSame($post->getOriginal('original_content'), 1);
+        self::assertSame($post->getOriginal('published'), '1');
+        self::assertSame($post->getOriginal('original_content'), '1');
         self::assertSame($post->getOriginal('external_url'),
             'http://foo.example.com');
         self::assertSame($post->getOriginal('author'),

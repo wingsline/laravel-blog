@@ -37,15 +37,11 @@ class TestCase extends Orchestra
         config()->set('app.debug', true);
         config()->set('app.name', 'wingsline-blog');
 
-        config()->set('database.default', 'mysql');
-        config()->set('database.connections.mysql', [
-            'driver' => 'mysql',
-            'host' => 'localhost',
-            'database' => 'test_packages_blog',
-            'username' => 'root',
-            'password' => 'secret',
+        $app['config']->set('database.default', 'sqlite');
+        $app['config']->set('database.connections.sqlite', [
+            'driver' => 'sqlite',
+            'database' => ':memory:',
             'prefix' => '',
-            'unix_socket' => '/opt/local/var/run/mysql57/mysqld.sock',
         ]);
 
         view()->getFinder()->prependLocation(__DIR__.'/sample-theme');
