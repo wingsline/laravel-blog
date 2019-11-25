@@ -1,1 +1,8 @@
-preset: laravel
+
+php:
+  preset: laravel
+js:
+  finder:
+    exclude:
+      - public
+css: true
