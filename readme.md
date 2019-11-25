@@ -4,8 +4,13 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Build Status][ico-travis]][link-travis]
 [![StyleCI][ico-styleci]][link-styleci]
+[![Quality Score][ico-scrutinizer]][link-scrutinizer]
 
 A simple blog package written for Laravel. Take a look at [contributing.md](contributing.md) to see a to do list.
+
+## Documentation
+
+To learn all about it head over to [the extensive documentation](https://wingsline.net/docs/laravel-blog/) page.
 
 ## Installation
 
@@ -84,6 +89,7 @@ MIT. Please see the [license file](license.md) for more information.
 [ico-downloads]: https://img.shields.io/packagist/dt/wingsline/blog.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/wingsline/laravel-blog/master.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/219611248/shield
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/g/wingsline/laravel-blog.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/wingsline/blog
 [link-downloads]: https://packagist.org/packages/wingsline/blog
@@ -91,3 +97,4 @@ MIT. Please see the [license file](license.md) for more information.
 [link-styleci]: https://styleci.io/repos/219611248
 [link-author]: https://github.com/wingsline
 [link-contributors]: ../../contributors
+[link-scrutinizer]: https://scrutinizer-ci.com/g/wingsline/laravel-blog
