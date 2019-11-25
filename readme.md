@@ -82,12 +82,12 @@ MIT. Please see the [license file](license.md) for more information.
 
 [ico-version]: https://img.shields.io/packagist/v/wingsline/blog.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/wingsline/blog.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/wingsline/blog/master.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/wingsline/laravel-blog/master.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/219611248/shield
 
 [link-packagist]: https://packagist.org/packages/wingsline/blog
 [link-downloads]: https://packagist.org/packages/wingsline/blog
-[link-travis]: https://travis-ci.org/wingsline/blog
+[link-travis]: https://travis-ci.org/wingsline/laravel-blog
 [link-styleci]: https://styleci.io/repos/219611248
 [link-author]: https://github.com/wingsline
 [link-contributors]: ../../contributors
