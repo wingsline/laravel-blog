@@ -1,4 +1,6 @@
 build:
+  environment:
+    php: 7.3.11
   nodes:
     analysis:
       tests:
@@ -9,6 +11,7 @@ filter:
     excluded_paths:
         - "tests/*"
         - "public/*"
+        
 checks:
     php:
         code_rating: true
