@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Wingsline\Blog\Database\Seeds;
 
 use App\User;
@@ -16,7 +15,7 @@ class UsersTableSeeder extends Seeder
     {
         /** @var User $user */
         $user = config('auth.providers.users.model');
-        if(!DB::table((new User)->getTable())->where('email', 'admin@example.com')->exists()) {
+        if (! DB::table((new User)->getTable())->where('email', 'admin@example.com')->exists()) {
             $user::create([
                 'name' => 'Administrator',
                 'email' => 'admin@example.com',

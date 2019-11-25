@@ -24,7 +24,7 @@ class Markdown extends MarkdownExtra
      */
     public function addSrcSet($url): string
     {
-        $result = ' srcset="' . $url;
+        $result = ' srcset="'.$url;
 
         // for local images we expand to the full path
 
@@ -71,7 +71,7 @@ class Markdown extends MarkdownExtra
     public function getImagePixelDensity($image_url)
     {
         // Currently we support only imagick
-        if (!\extension_loaded('imagick')) {
+        if (! \extension_loaded('imagick')) {
             return '';
         }
 

@@ -19,8 +19,8 @@ class TestCase extends Orchestra
     protected function setUp(): void
     {
         parent::setUp();
-        $this->withFactories(__DIR__ . '/../database/factories');
-        $this->app->instance('path.public', realpath(__DIR__ . '/public'));
+        $this->withFactories(__DIR__.'/../database/factories');
+        $this->app->instance('path.public', realpath(__DIR__.'/public'));
     }
 
     /**
@@ -48,7 +48,7 @@ class TestCase extends Orchestra
             'unix_socket' => '/opt/local/var/run/mysql57/mysqld.sock',
         ]);
 
-        view()->getFinder()->prependLocation(__DIR__ . '/sample-theme');
+        view()->getFinder()->prependLocation(__DIR__.'/sample-theme');
 
         // copy migration stubs from vendor packages
 

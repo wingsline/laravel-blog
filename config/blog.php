@@ -1,7 +1,7 @@
 <?php
 
-use Wingsline\Blog\Posts\Post;
 use Wingsline\Blog\Markdown\Markdown;
+use Wingsline\Blog\Posts\Post;
 
 return [
     /*
@@ -40,7 +40,7 @@ return [
     'navHeader' => [
         'blog::layouts.nav.items.site',
         'blog::layouts.nav.items.account',
-        'blog::layouts.nav.items.logout'
+        'blog::layouts.nav.items.logout',
     ],
 
     /*
@@ -64,7 +64,7 @@ return [
     |
     */
     'feed' => [
-        'items' => Post::class . '@getFeedItems',
+        'items' => Post::class.'@getFeedItems',
         'url' => '/feed/blog',
         'title' => config('app.name'),
         'description' => config('theme.meta.description', ''),
@@ -83,6 +83,6 @@ return [
     */
     'markdown_parser' => [
         'class' => Markdown::class,
-        'method' => 'convertToHtml'
-    ]
+        'method' => 'convertToHtml',
+    ],
 ];

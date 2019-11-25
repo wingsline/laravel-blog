@@ -76,7 +76,7 @@ class InstallCommand extends Command
             ]
         );
         // check if media table exists
-        if (!Schema::hasTable('media')) {
+        if (! Schema::hasTable('media')) {
             $this->callSilent(
                 'vendor:publish',
                 [
@@ -108,7 +108,7 @@ class InstallCommand extends Command
                 '--provider' => TagsServiceProvider::class,
             ]
         );
-        if (!Schema::hasTable('tags')) {
+        if (! Schema::hasTable('tags')) {
             $this->callSilent(
                 'vendor:publish',
                 [
@@ -137,6 +137,6 @@ class InstallCommand extends Command
         }
 
         $admin_url = url(config('blog.prefix'));
-        $this->info('Installation complete. You can login to the admin ' . $admin_url);
+        $this->info('Installation complete. You can login to the admin '.$admin_url);
     }
 }

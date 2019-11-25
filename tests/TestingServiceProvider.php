@@ -21,8 +21,8 @@ class TestingServiceProvider extends ServiceProvider
         // migrated tables.
 
         $this->loadMigrationsFrom([
-            '--realpath' => realpath(__DIR__ . '/../vendor/orchestra/testbench-core/laravel/migrations'),
-            __DIR__ . '/vendor-migrations',
+            '--realpath' => realpath(__DIR__.'/../vendor/orchestra/testbench-core/laravel/migrations'),
+            __DIR__.'/vendor-migrations',
         ]);
     }
 }

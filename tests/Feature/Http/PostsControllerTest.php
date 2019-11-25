@@ -31,7 +31,7 @@ class PostsControllerTest extends TestCase
     {
         $post = factory(Post::class)->create(['title' => 'foo-title']);
         $user = $this->loginUser();
-        $response = $this->be($user)->delete('admin/posts/' . $post->id);
+        $response = $this->be($user)->delete('admin/posts/'.$post->id);
 
         $response->assertStatus(302);
 
@@ -51,7 +51,7 @@ class PostsControllerTest extends TestCase
         $post = factory(Post::class)->create(['title' => 'foo-title']);
 
         $user = $this->loginUser();
-        $response = $this->be($user)->get('admin/posts/' . $post->id . '/edit');
+        $response = $this->be($user)->get('admin/posts/'.$post->id.'/edit');
 
         $response->assertStatus(200);
         $response->assertViewIs('blog::posts.edit');
@@ -116,7 +116,7 @@ class PostsControllerTest extends TestCase
             ['message' => 'Post saved.', 'class' => '']
         );
         $post = Post::where('title', 'new-post')->first();
-        $response->assertRedirect('admin/posts/' . $post->id . '/edit');
+        $response->assertRedirect('admin/posts/'.$post->id.'/edit');
     }
 
     /**
@@ -144,7 +144,7 @@ class PostsControllerTest extends TestCase
         $user = $this->loginUser();
         $response = $this->be($user)
             ->put(
-                'admin/posts/' . $post->id,
+                'admin/posts/'.$post->id,
                 [
                     'title' => 'updated-post',
                     'text' => 'updated text',
@@ -161,7 +161,7 @@ class PostsControllerTest extends TestCase
             'laravel_flash_message',
             ['message' => 'Post updated.', 'class' => '']
         );
-        $response->assertRedirect('admin/posts/' . $post->id . '/edit');
+        $response->assertRedirect('admin/posts/'.$post->id.'/edit');
 
         $post = $post->fresh();
         self::assertSame('updated-post', $post->getAttribute('title'));
@@ -178,7 +178,7 @@ class PostsControllerTest extends TestCase
     {
         $post = factory(Post::class)->create(['title' => 'foo-title']);
         $user = $this->loginUser();
-        $response = $this->be($user)->put('admin/posts/' . $post->id);
+        $response = $this->be($user)->put('admin/posts/'.$post->id);
 
         $response->assertStatus(302);
         $response->assertSessionHasErrors([
@@ -196,7 +196,7 @@ class PostsControllerTest extends TestCase
         $image = UploadedFile::fake()->image('image.jpg');
         $user = $this->loginUser();
         $response = $this->be($user)->post(
-            'admin/posts/upload/' . $post->id,
+            'admin/posts/upload/'.$post->id,
             ['image' => $image]
         );
 
@@ -215,7 +215,7 @@ class PostsControllerTest extends TestCase
         $user = $this->loginUser();
         $response = $this->be($user)
             ->post(
-                'admin/posts/upload/' . $post->id,
+                'admin/posts/upload/'.$post->id,
                 ['image' => 'invalid']
             );
 

@@ -26,7 +26,7 @@ class ThemePublishCommand extends Command
      */
     public function handle()
     {
-        if (!file_exists(base_path('theme/public'))) {
+        if (! file_exists(base_path('theme/public'))) {
             return $this->error('The theme doesn\'t have any public assets.');
         }
 
