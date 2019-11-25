@@ -1,5 +1,8 @@
 language: php
 
+services:
+  - mysql
+
 php:
   - 7.3
 
@@ -11,6 +14,7 @@ env:
 before_install:
   - sudo apt-get update
   - travis_retry composer self-update
+  - mysql -e 'CREATE DATABASE test_packages_blog;'
 
 install:
   - travis_retry composer update --prefer-source $COMPOSER_FLAGS
