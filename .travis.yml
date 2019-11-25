@@ -16,10 +16,6 @@ env:
 before_install:
   - sudo apt-get update
   - travis_retry composer self-update
-  - sudo mkdir -p /opt/local/var/run/mysql57/
-  - echo -e "[server]\nsocket=/opt/local/var/run/mysql57/mysqld.sock" | sudo tee -a /etc/mysql/my.cnf
-  - sudo service mysql restart
-  - mysql -e 'CREATE DATABASE test_packages_blog;'
 
 install:
   - travis_retry composer update --prefer-source $COMPOSER_FLAGS
