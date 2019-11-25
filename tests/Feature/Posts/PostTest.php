@@ -48,15 +48,15 @@ class PostTest extends TestCase
         factory(Post::class)
             ->create([
                 'title' => 'foo-title',
-                'publish_date' => now()
+                'publish_date' => now(),
             ]);
         factory(Post::class)->create([
             'title' => 'bar-title',
-            'publish_date' => now()->subDay()
+            'publish_date' => now()->subDay(),
         ]);
         factory(Post::class)->create([
             'title' => 'baz-title',
-            'publish_date' => now()->addDay()
+            'publish_date' => now()->addDay(),
         ]);
 
         $posts = Post::public()->get();
@@ -74,11 +74,11 @@ class PostTest extends TestCase
     {
         factory(Post::class)->create([
             'title' => 'foo-title',
-            'published' => 0
+            'published' => 0,
         ]);
         factory(Post::class)->create([
             'title' => 'bar-title',
-            'published' => 1
+            'published' => 1,
         ]);
 
         $posts = Post::published()->get();

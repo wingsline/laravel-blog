@@ -32,14 +32,14 @@ class AccountEditRequest extends FormRequest
                 'string',
                 'email',
                 'max:255',
-                'unique:users,email,' . $auth_user->id
+                'unique:users,email,'.$auth_user->id,
             ],
             'password' => [
                 'present',
                 'string',
                 'nullable',
                 'min:8',
-                'confirmed'
+                'confirmed',
             ],
             'password_confirmation' => ['present', 'string', 'nullable'],
         ];

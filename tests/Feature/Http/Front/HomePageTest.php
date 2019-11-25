@@ -18,15 +18,15 @@ class HomePageTest extends TestCase
         // create some published posts
         factory(Post::class)->create([
             'title' => 'foo-title',
-            'published' => 1
+            'published' => 1,
         ]);
         factory(Post::class)->create([
             'title' => 'bar-title',
-            'published' => 1
+            'published' => 1,
         ]);
         factory(Post::class)->create([
             'title' => 'baz-title',
-            'published' => 0
+            'published' => 0,
         ]);
         $response = $this->get('/');
 

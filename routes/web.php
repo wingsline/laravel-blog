@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Wingsline\Blog\Http\Controllers\LoginController;
-use Wingsline\Blog\Http\Controllers\PostsController;
 use Wingsline\Blog\Http\Controllers\AccountController;
 use Wingsline\Blog\Http\Controllers\DashboardController;
 use Wingsline\Blog\Http\Controllers\Front\HomeController;
 use Wingsline\Blog\Http\Controllers\Front\TaggedPostsController;
+use Wingsline\Blog\Http\Controllers\LoginController;
+use Wingsline\Blog\Http\Controllers\PostsController;
 
 // Admin routes
 Route::middleware(['web', 'blog-nocache'])

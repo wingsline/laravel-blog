@@ -32,7 +32,7 @@ class ImageUploadRequest extends FormRequest
                 'required',
                 'mimes:jpeg,png',
                 'image',
-                'max:' . $size,
+                'max:'.$size,
             ],
         ];
     }

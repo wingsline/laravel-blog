@@ -36,7 +36,6 @@ class PostsController extends BaseController
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      * @throws \Exception
-     *
      */
     public function destroy(Post $post)
     {
@@ -134,7 +133,7 @@ class PostsController extends BaseController
                     parse_url($media->getFullUrl(),
                     PHP_URL_PATH),
                     '/'
-                )
+                ),
             ],
         ];
     }

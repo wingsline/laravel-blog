@@ -18,13 +18,13 @@ class TagPageTest extends TestCase
         $post = factory(Post::class)
             ->create([
                 'title' => 'foo-title',
-                'published' => 1
+                'published' => 1,
             ]);
         $post->syncTags(['foo', 'bar']);
         factory(Post::class)
             ->create([
                 'title' => 'bar-title',
-                'published' => 1
+                'published' => 1,
             ]);
 
         $response = $this->get('/tag/foo');

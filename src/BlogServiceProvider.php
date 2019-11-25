@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Flash\Flash;
 use Spatie\Menu\Laravel\Facades\Menu;
-use Spatie\Menu\Laravel\Link;
 use Spatie\Menu\Laravel\View;
 use Spatie\ResponseCache\Middlewares\CacheResponse;
 use Spatie\Tags\Tag;
@@ -37,9 +36,9 @@ class BlogServiceProvider extends ServiceProvider
         // prepend the views from the theme
         $this->app['view']->getFinder()->prependLocation(base_path('theme/views'));
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'blog');
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'blog');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
         Flash::levels([
             'success' => '',
@@ -92,7 +91,7 @@ class BlogServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/blog.php', 'blog');
+        $this->mergeConfigFrom(__DIR__.'/../config/blog.php', 'blog');
 
         if (file_exists(base_path('theme/config.php'))) {
             $this->mergeConfigFrom(base_path('theme/config.php'), 'theme');
@@ -116,7 +115,7 @@ class BlogServiceProvider extends ServiceProvider
 
             $post = Post::where('slug', $slug)->public()->first() ?? abort(404);
 
-            if (!$post->published) {
+            if (! $post->published) {
                 abort(404);
             }
 
@@ -135,23 +134,23 @@ class BlogServiceProvider extends ServiceProvider
     {
         // Publishing the configuration file.
         $this->publishes([
-            __DIR__ . '/../config/blog.php' => config_path('blog.php'),
-            __DIR__ . '/../config/theme.php' => config_path('theme.php'),
+            __DIR__.'/../config/blog.php' => config_path('blog.php'),
+            __DIR__.'/../config/theme.php' => config_path('theme.php'),
         ], 'blog.config');
 
         // Publishing the views.
         $this->publishes([
-            __DIR__ . '/../resources/views' => base_path('resources/views/vendor/wingsline'),
+            __DIR__.'/../resources/views' => base_path('resources/views/vendor/wingsline'),
         ], 'blog.views');
 
         // Publishing the migrations.
         $this->publishes([
-            __DIR__ . '/../database/migrations' => database_path('migrations'),
+            __DIR__.'/../database/migrations' => database_path('migrations'),
         ], 'blog.migrations');
 
         // Publishing assets.
         $this->publishes([
-            __DIR__ . '/../public' => public_path('vendor/wingsline-blog'),
+            __DIR__.'/../public' => public_path('vendor/wingsline-blog'),
         ], 'blog.assets');
 
         // Publishing the translation files.
