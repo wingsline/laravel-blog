@@ -2,15 +2,11 @@ sudo: required
 
 language: php
 
-services:
-  - mysql
-
 php:
   - 7.3
 
 env:
   matrix:
-    - COMPOSER_FLAGS="--prefer-lowest"
     - COMPOSER_FLAGS=""
 
 before_install:
