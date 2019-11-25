@@ -1,13 +1,13 @@
 build:
-  
   nodes:
     analysis:
       tests:
+        environment:
+          php:
+            version: 7.3
         override:
           - php-scrutinizer-run
-    tests-and-coverage:
-      environment:
-        php: 7.3.11
+
 
 filter:
     excluded_paths:
