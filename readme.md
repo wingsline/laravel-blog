@@ -8,6 +8,8 @@
 
 A simple blog package written for Laravel. Take a look at [contributing.md](contributing.md) to see a to do list.
 
+![Admin dashboard screenshot](https://wingsline.net/external-assets/laravel-blog-admin-overview.png)
+
 ## Documentation
 
 To learn all about it head over to [the extensive documentation](https://wingsline.net/docs/laravel-blog/) page.
