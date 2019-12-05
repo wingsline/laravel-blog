@@ -15,7 +15,6 @@ before_install:
 
 install:
   - travis_retry composer update --prefer-source $COMPOSER_FLAGS
-  - travis_retry composer require league/flysystem-aws-s3-v3
 
 script:
   - vendor/bin/phpunit
