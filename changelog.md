@@ -2,6 +2,11 @@
 
 All notable changes to `Blog` will be documented in this file.
 
+## Version 1.2.1
+
+### Fixed
+- Navigation overlap on small screens
+
 ## Version 1.2.0
 
 ### New
