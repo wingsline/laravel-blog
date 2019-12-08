@@ -7,7 +7,7 @@ Contributions are accepted via Pull Requests on [Github](https://github.com/wing
 # Things you could do
 If you want to contribute but do not know where to start, this list provides some starting points.
 
-- Set up TravisCI, StyleCI, ScrutinizerCI
+- Set up ~~TravisCI~~, ~~StyleCI~~, ~~ScrutinizerCI~~
 - Write a comprehensive ReadMe
 
 ## Pull Requests
