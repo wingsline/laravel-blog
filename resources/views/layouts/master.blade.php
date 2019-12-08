@@ -57,7 +57,7 @@
     </header>
     <div class="lg:flex lg:flex-1 container">
         @auth
-            <aside class="z-50 fixed lg:block inset-0 mt-16 lg:mt-0 bg-white px-8 py-5 sr-only lg:not-sr-only lg:w-1/4" id="admin-nav" aria-expanded="false">
+            <aside class="z-50 lg:z-0 fixed lg:block inset-0 mt-16 lg:mt-0 bg-white px-8 py-5 sr-only lg:not-sr-only lg:w-1/4" id="admin-nav" aria-expanded="false">
                 <nav class="px-4 h-full overflow-auto">
                     {{ \Spatie\Menu\Laravel\Facades\Menu::blogAdminNav() }}
                 </nav>
