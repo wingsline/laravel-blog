@@ -126,7 +126,7 @@ class InstallCommand extends Command
         $this->comment('Running the database migrations...');
         $this->call('migrate');
 
-        if (!file_exists(public_path('storage'))) {
+        if (! file_exists(public_path('storage'))) {
             $this->call('storage:link');
         }
         // Link the theme?
