@@ -125,7 +125,10 @@ class InstallCommand extends Command
         // run the migrations and seeds
         $this->comment('Running the database migrations...');
         $this->call('migrate');
-        $this->call('storage:link');
+
+        if (!file_exists(public_path('storage'))) {
+            $this->call('storage:link');
+        }
         // Link the theme?
         if ($this->confirm('Link the theme\'s public assets?')) {
             $this->call('blog:theme-publish');
