@@ -10,7 +10,7 @@
 
     <!-- Styles -->
     <link nonce="{{ csp_nonce() }}" rel="stylesheet"
-          href="{{ mix('main.css', 'vendor/wingsline-blog') }}">
+          href="{{ asset(mix('main.css', 'vendor/wingsline-blog')) }}">
 </head>
 <body class="min-h-screen">
 <div class="min-h-screen flex flex-col" id="app">
@@ -69,10 +69,10 @@
     </div>
 </div>
 <script nonce="{{ csp_nonce() }}"
-        src="{{ mix('manifest.js', 'vendor/wingsline-blog') }}"></script>
+        src="{{ asset(mix('manifest.js', 'vendor/wingsline-blog')) }}"></script>
 <script nonce="{{ csp_nonce() }}"
-        src="{{ mix('vendor.js', 'vendor/wingsline-blog') }}"></script>
+        src="{{ asset(mix('vendor.js', 'vendor/wingsline-blog')) }}"></script>
 <script nonce="{{ csp_nonce() }}"
-        src="{{ mix('app.js', 'vendor/wingsline-blog') }}"></script>
+        src="{{ asset(mix('app.js', 'vendor/wingsline-blog')) }}"></script>
 </body>
 </html>
