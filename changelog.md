@@ -5,7 +5,7 @@ All notable changes to `Blog` will be documented in this file.
 ## Version 1.2.4
 
 ### Fixed
-- Assets now have absolute URL's.
+- Assets now have relative URL's.
 
 ## Version 1.2.1
 
