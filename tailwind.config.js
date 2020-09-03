@@ -1,4 +1,14 @@
 module.exports = {
+    purge: [
+        "./src/**/*.php",
+        "./resources/views/**/*.php",
+        "./resources/js/**/*.js",
+        "./node_modules/codemirror/**/*.js",
+        "./node_modules/highlight.js/**/*.js",
+    ],
+    future: {
+        removeDeprecatedGapUtilities: true,
+    },
     theme: {
         container: {
             center: true

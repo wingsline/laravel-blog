@@ -2,6 +2,12 @@
 
 All notable changes to `Blog` will be documented in this file.
 
+## Version 1.2.6
+
+- Bump PHP to v7.3 
+- Updated TailwindCSS to v1.7
+- Updated vendor dependencies
+
 ## Version 1.2.4
 
 ### Fixed

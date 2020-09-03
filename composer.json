@@ -12,11 +12,12 @@
     "homepage": "https://github.com/wingsline/blog",
     "keywords": ["Laravel", "Blog"],
     "require": {
+        "php": "^7.3",
         "illuminate/support": "~6",
         "spatie/laravel-backup": "^6.0",
         "spatie/laravel-csp": "^2.4",
         "spatie/laravel-feed": "^2.0",
-        "spatie/laravel-flash": "^1.3",
+        "spatie/laravel-flash": "1.3.0",
         "spatie/laravel-medialibrary": "^7.14",
         "spatie/laravel-menu": "^3.0",
         "spatie/laravel-missing-page-redirector": "^2.5",

@@ -1,6 +1,5 @@
 const mix = require('laravel-mix');
 const autoprefixer = require("autoprefixer");
-const cssmqpacker = require("css-mqpacker");
 const postcssDiscardComments = require("postcss-discard-comments");
 const postCssImport = require("postcss-import");
 const postInlineSvg = require("postcss-inline-svg");
@@ -21,45 +20,11 @@ const postCssOptions = [
     postCssImport(),
     tailwindcss(),
     postInlineSvg(),
-    cssmqpacker(),
     autoprefixer(),
     postcssDiscardComments({
         removeAll: true
     })
 ];
-
-// whitelist these class names
-mix.purgeCss({
-    folders: [
-        './src/**/*.php',
-        './resources/**/*'
-    ],
-    globs: [
-        path.join(__dirname, 'resources/js/vendor/**/*.js'),
-        path.join(__dirname, 'node_modules/codemirror/**/*.js'),
-        path.join(__dirname, 'node_modules/highlight.js/**/*.js'),
-    ],
-    whitelistPatterns: [
-        /hljs/,
-        /page/,
-        /iframe/,
-        /CodeMirror/,
-        /CodeMirror-/,
-        /editor/,
-        /cm/,
-        /easymde/,
-        /th/,
-        /td/,
-        /footnote/,
-        /hr/,
-        // classnames in the service provider
-        /p-2/,
-        /ml-5/,
-        /ml-6/,
-        /flex/,
-        /items-center/
-    ]
-});
 
 mix.options({
     autoprefixer: false,
