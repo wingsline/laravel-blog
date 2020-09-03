@@ -16,6 +16,8 @@ To learn all about it head over to [the extensive documentation](https://wingsli
 
 ## Installation
 
+This package requires PHP v7.3 and Laravel v6.
+
 Via Composer
 
 ``` bash
