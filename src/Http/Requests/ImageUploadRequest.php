@@ -25,7 +25,7 @@ class ImageUploadRequest extends FormRequest
      */
     public function rules()
     {
-        $size = config('medialibrary.max_file_size');
+        $size = config('media-library.max_file_size');
 
         return [
             'image' => [

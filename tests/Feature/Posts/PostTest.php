@@ -111,15 +111,15 @@ class PostTest extends TestCase
         $post = $post->fresh();
 
         // assetions
-        self::assertSame($post->getOriginal('title'), 'bar-title');
-        self::assertSame($post->getOriginal('text'), 'foo-text');
-        self::assertSame($post->getOriginal('publish_date'),
+        self::assertSame($post->getRawOriginal('title'), 'bar-title');
+        self::assertSame($post->getRawOriginal('text'), 'foo-text');
+        self::assertSame($post->getRawOriginal('publish_date'),
             $now->format('Y-m-d H:i:s'));
-        self::assertSame($post->getOriginal('published'), '1');
-        self::assertSame($post->getOriginal('original_content'), '1');
-        self::assertSame($post->getOriginal('external_url'),
+        self::assertSame($post->getRawOriginal('published'), '1');
+        self::assertSame($post->getRawOriginal('original_content'), '1');
+        self::assertSame($post->getRawOriginal('external_url'),
             'http://foo.example.com');
-        self::assertSame($post->getOriginal('author'),
+        self::assertSame($post->getRawOriginal('author'),
             $user->getAttribute('name'));
         self::assertSame($post->tags->pluck('name')->toArray(), ['foo', 'bar']);
     }

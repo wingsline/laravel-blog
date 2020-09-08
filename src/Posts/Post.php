@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Tags\HasTags;
@@ -16,12 +16,13 @@ use Wingsline\Blog\Markdown\Markdown;
 
 class Post extends Model implements Feedable, HasMedia
 {
-    use HasMediaTrait;
     use HasSlug;
     use HasTags;
+    use InteractsWithMedia;
     use PostPresenter;
 
     public $casts = [
+        'text' => '',
         'published' => 'boolean',
         'original_content' => 'boolean',
     ];
@@ -52,7 +53,7 @@ class Post extends Model implements Feedable, HasMedia
      */
     public function getMarkdownAttribute()
     {
-        return $this->getOriginal('text');
+        return $this->getRawOriginal('text');
     }
 
     /**

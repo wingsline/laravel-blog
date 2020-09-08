@@ -51,7 +51,7 @@ class AccountControllerTest extends TestCase
         );
         $response->assertSessionHas(
             'laravel_flash_message',
-            ['message' => 'Account updated.', 'class' => '']
+            ['message' => 'Account updated.', 'class' => '', 'level' => 'success']
         );
         $response->assertRedirect('admin/account');
     }

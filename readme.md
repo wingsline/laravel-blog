@@ -14,9 +14,14 @@ A simple blog package written for Laravel. Take a look at [contributing.md](cont
 
 To learn all about it head over to [the extensive documentation](https://wingsline.net/docs/laravel-blog/) page.
 
-## Installation
+## Version Compatibility
 
-This package requires PHP v7.3 and Laravel v6.
+ Laravel  | Blog
+:---------|:----------
+ 6.x      | 1.x
+ 7.x      | 2.x
+
+## Installation
 
 Via Composer
 

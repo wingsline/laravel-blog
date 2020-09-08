@@ -37,7 +37,7 @@ class PostsControllerTest extends TestCase
 
         $response->assertSessionHas(
             'laravel_flash_message',
-            ['message' => 'Post deleted.', 'class' => '']
+            ['message' => 'Post deleted.', 'class' => '', 'level' => 'success']
         );
 
         $this->assertDatabaseMissing('posts', ['id' => $post->id]);
@@ -113,7 +113,7 @@ class PostsControllerTest extends TestCase
 
         $response->assertSessionHas(
             'laravel_flash_message',
-            ['message' => 'Post saved.', 'class' => '']
+            ['message' => 'Post saved.', 'class' => '', 'level' => 'success']
         );
         $post = Post::where('title', 'new-post')->first();
         $response->assertRedirect('admin/posts/'.$post->id.'/edit');
@@ -159,7 +159,7 @@ class PostsControllerTest extends TestCase
         $response->assertStatus(302);
         $response->assertSessionHas(
             'laravel_flash_message',
-            ['message' => 'Post updated.', 'class' => '']
+            ['message' => 'Post updated.', 'class' => '', 'level' => 'success']
         );
         $response->assertRedirect('admin/posts/'.$post->id.'/edit');
 
