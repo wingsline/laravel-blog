@@ -11,7 +11,7 @@ env:
 
 before_install:
   - sudo apt-get update
-  - travis_retry composer self-update
+  - travis_retry composer self-update --preview
 
 install:
   - travis_retry composer update --prefer-source $COMPOSER_FLAGS
@@ -22,4 +22,3 @@ script:
 branches:
   only:
     - master
-
