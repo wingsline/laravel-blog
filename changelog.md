@@ -2,6 +2,10 @@
 
 All notable changes to `Blog` will be documented in this file.
 
+## Version 2.0.0
+
+- Added Laravel 7 support
+
 ## Version 1.2.6
 
 - Bump PHP to v7.3 
