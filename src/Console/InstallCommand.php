@@ -139,7 +139,7 @@ class InstallCommand extends Command
             $this->call('db:seed', ['--class' => UsersTableSeeder::class]);
         }
 
-        $admin_url = url(config('blog.prefix'));
+        $admin_url = url(config('blog.adminprefix'));
         $this->info('Installation complete. You can login to the admin '.$admin_url);
     }
 }

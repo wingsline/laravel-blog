@@ -56,6 +56,6 @@ class LoginController extends BaseController
      */
     protected function redirectTo()
     {
-        return config('blog.prefix');
+        return config('blog.adminprefix');
     }
 }
