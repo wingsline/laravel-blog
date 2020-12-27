@@ -20,7 +20,7 @@ return [
      |
      |
     */
-    'blogprefix' => env('BLOG_PREFIX', 'blog'),
+    'blogprefix' => env('BLOG_PREFIX', ''),
 
     /*
     |--------------------------------------------------------------------------
