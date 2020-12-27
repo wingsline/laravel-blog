@@ -16,5 +16,6 @@
     <server name="MAIL_DRIVER" value="array"/>
     <server name="QUEUE_CONNECTION" value="sync"/>
     <server name="SESSION_DRIVER" value="array"/>
+    <server name="BLOG_PREFIX" value="blog"/>
   </php>
 </phpunit>

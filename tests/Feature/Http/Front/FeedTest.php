@@ -25,8 +25,7 @@ class FeedTest extends TestCase
             'published' => 0,
         ]);
 
-        $response = $this->get('/feed/blog');
-
+        $response = $this->get('/blog/feed/blog');
         $response->assertStatus(200);
         $response->assertSee('foo-title');
         $response->assertSee('bar-title');

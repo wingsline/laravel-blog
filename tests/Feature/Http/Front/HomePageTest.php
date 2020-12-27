@@ -28,7 +28,7 @@ class HomePageTest extends TestCase
             'title' => 'baz-title',
             'published' => 0,
         ]);
-        $response = $this->get('/');
+        $response = $this->get('blog');
 
         $response->assertStatus(200);
 

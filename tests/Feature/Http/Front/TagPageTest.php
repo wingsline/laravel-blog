@@ -27,7 +27,7 @@ class TagPageTest extends TestCase
                 'published' => 1,
             ]);
 
-        $response = $this->get('/tag/foo');
+        $response = $this->get('/blog/tag/foo');
 
         $response->assertStatus(200);
         $response->assertSee('foo-title');
